@@ -5,7 +5,7 @@ volumes:
 services:
   api:
     build:
-      context: ./api
+      context: api
       dockerfile: Dockerfile.dev
     environment:
       DATABASE_URL: postgresql://POSTG_USER:${POSTGRES_PASSWORD}@db/FitCheck_DB
@@ -39,4 +39,3 @@ services:
       - "15432:5432"
     volumes:
       - fastapi-FitCheck-data:/var/lib/postgresql/data
-
