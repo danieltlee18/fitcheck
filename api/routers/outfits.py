@@ -3,28 +3,10 @@ from pydantic import BaseModel
 from .ratings import RatingOut
 from typing import List
 from .pool import pool
+from queries.outfits import OutfitIn, OutfitOut, AllOutfits
 
 
 router = APIRouter()
-
-class OutfitIn(BaseModel):
-    img_url: str
-    style: str ##literal?
-    occasion: str | None
-    ## tie to userid somehow
-
-
-
-
-class OutfitOut(BaseModel):
-    img_url: str
-    style: str
-    occasion: str | None
-    id: int
-    # ratings: list[RatingOut]
-
-class AllOutfits(BaseModel):
-    outfits : List[OutfitOut]
 
 @router.get("/api/outfits", response_model = AllOutfits)
 def list_outfits() -> AllOutfits: #queries: OutfitQueries = Depends()
@@ -40,16 +22,13 @@ def list_outfits() -> AllOutfits: #queries: OutfitQueries = Depends()
                 )
                 results = []
                 for record in db.fetchall():
-                    print("CCCCCCCCCCCCCCCC: ", record)
-                    print(record[0], record[1], record[2], record[3])
-                    outfit = {
-                        "id" : record[0],
-                        "img_url" : record[1],
-                        "style" : record[2],
-                        "occasion" : record[3]
-                    }
+                    outfit = OutfitOut(
+                        id = record[0],
+                        img_url = record[1],
+                        style = record[2],
+                        occasion = record[3]
+                    )
                     results.append(outfit)
-                print("BBBBBBBBBBBBBBBBBBBBBB: ", results)
                 return {"outfits":results}
     except Exception as e:
         print(e)
