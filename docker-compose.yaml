@@ -1,6 +1,7 @@
 volumes:
   fastapi-FitCheck-data:
     external: true
+
 services:
   api:
     build:
