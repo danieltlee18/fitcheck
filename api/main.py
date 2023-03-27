@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import os
-
+from routers import outfits
 app = FastAPI()
 
 app.add_middleware(
@@ -18,15 +18,4 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-@app.get("/api/launch-details")
-def launch_details():
-    return {
-        "launch_details": {
-            "year": 2022,
-            "month": 12,
-            "day": "9",
-            "hour": 19,
-            "min": 0,
-            "tz:": "PST"
-        }
-    }
+app.include_router(outfits.router)
