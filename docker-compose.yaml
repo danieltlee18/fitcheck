@@ -1,14 +1,20 @@
-# volumes:
+volumes:
+  fastapi-FitCheck-data:
+    external: true
+
 services:
-  fastapi:
+  api:
     build:
-      context: sample_service
+      context: ./api
       dockerfile: Dockerfile.dev
+    environment:
+      DATABASE_URL: postgresql://POSTG_USER:${POSTGRES_PASSWORD}@db/FitCheck_DB
+      WAIT_HOSTS: db:5432
+      PORT: 8000
     ports:
-      - 8000:8000
+      - "8000:8000"
     volumes:
-      - ./sample_service:/app
-      
+      - ./api:/app
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
@@ -22,5 +28,15 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_SAMPLE_SERVICE_API_HOST: http://localhost:8000
-            
+      REACT_APP_FitCheck_API_HOST: http://localhost:8000
+  db:
+    image: postgres:14.5-bullseye
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_USER: POSTG_USER
+      POSTGRES_DB: FitCheck_DB
+    ports:
+      - "15432:5432"
+    volumes:
+      - fastapi-FitCheck-data:/var/lib/postgresql/data
+
