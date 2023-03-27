@@ -5,14 +5,14 @@ volumes:
 services:
   api:
     build:
-      context: ./api
+      context: api
       dockerfile: Dockerfile.dev
     environment:
       DATABASE_URL: postgresql://POSTG_USER:${POSTGRES_PASSWORD}@db/FitCheck_DB
       WAIT_HOSTS: db:5432
       PORT: 8000
     ports:
-      - "8000:8000"
+      - 8000:8000
     volumes:
       - ./api:/app
   ghi:
