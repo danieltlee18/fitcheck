@@ -15,7 +15,7 @@ class AuthenticateUser(Authenticator):
         return accounts.get(username)
 
     def get_account_getter(
-        self,
+        
         accounts: AccountQueries = Depends(),
     ):
         # Return the accounts. That's it.

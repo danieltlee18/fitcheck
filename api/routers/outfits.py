@@ -32,7 +32,7 @@ def list_outfits() -> AllOutfits: #queries: OutfitQueries = Depends()
                 return {"outfits":results}
     except Exception as e:
         print(e)
-    return {"message" : "could not get all vacations"}
+    return {"message" : "could not get all outfits"}
 
 @router.post("/api/outfits", response_model = OutfitOut)
 def create_outfit(outfit: OutfitIn) -> OutfitOut: #queries: OutfitQueries = Depends()
