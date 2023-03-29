@@ -2,24 +2,32 @@ import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.accounts import AccountQueries, AccountOut, AccountOutWithPassword
-
+from routers.pool import pool
 
 class AuthenticateUser(Authenticator):
+
+
+
     async def get_account_data(
         self,
         username: str,
         accounts: AccountQueries,
     ):
         # Use your repo to get the account based on the
-        # username (which could be an email)
+        # username
+        print("THIS IS NOT ACCOUNTS1:", accounts)
         return accounts.get(username)
 
+
     def get_account_getter(
-        
+
         accounts: AccountQueries = Depends(),
     ):
         # Return the accounts. That's it.
-        return accounts
+        print("THIS IS NOT ACCOUNT2:", accounts)
+        account = AccountQueries()
+
+        return account
 
     def get_hashed_password(self, account: AccountOutWithPassword):
         # Return the encrypted password value from your

@@ -21,12 +21,8 @@ class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
 class AccountQueries:
-    # COLLECTION = "accounts"
 
     def get(self, username: str) -> AccountOutWithPassword:
-        # result = self.collection.find_one({"username": username.lower()})
-        # if result is None:
-        print(username)
         with pool.connection() as conn:
             with conn.cursor() as curs:
                 result = curs.execute(
@@ -38,31 +34,35 @@ class AccountQueries:
                     [username]
                 )
                 print(curs)
-                u_name = curs.fetchall()
-                if u_name[0] == None:
+                u_name = curs.fetchone()
+                if u_name == None:
                     return None
-                print("CUUUURRRSS....FEEEETTTCCHHH", u_name[0])
 
-
-        return AccountOutWithPassword(**result)
+                out_user = AccountOutWithPassword(
+                    id = u_name[0],
+                    email = u_name[1],
+                    username = u_name[2],
+                    hashed_password = u_name[3]
+                )
+                return out_user
 
     def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
         info.username = info.username.lower()
         account = info.dict()
         del account["password"]
         account["hashed_password"] = hashed_password
-        print("BEFORE IT ALLLLLLLL", account, info)
         with pool.connection() as conn:
             with conn.cursor() as curs:
                 curs.execute(
                     """
-                    SELECT username
+                    SELECT username, email
                     FROM accounts
-                    WHERE username = %s
+                    WHERE (username = %s or email = %s)
                     """,
-                    [account["username"]]
+                    [account["username"], account["email"]]
                 )
                 print("before fetch", account, account["username"])
+                db_account = curs.fetchone
                 if curs.fetchone() is not None:
                     raise DuplicateAccountError
 
@@ -75,5 +75,4 @@ class AccountQueries:
                     [account["username"], account["email"], account["hashed_password"]]
                 )
                 account["id"] = output.fetchone()[0]
-                print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", output.fetchall())
         return AccountOutWithPassword(**account )
