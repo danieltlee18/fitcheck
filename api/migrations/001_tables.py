@@ -36,9 +36,9 @@ steps = [
         """
         CREATE TABLE ratings (
             id SERIAL PRIMARY KEY NOT NULL,
-            category1 DECIMAL(2,1) NOT NULL CHECK (category1 >= 0 AND category1 <= 5 AND category1 % 0.5 = 0),
-            category2 DECIMAL(2,1) NOT NULL CHECK (category2 >= 0 AND category2 <= 5 AND category2 % 0.5 = 0),
-            category3 DECIMAL(2,1) NOT NULL CHECK (category3 >= 0 AND category3 <= 5 AND category3 % 0.5 = 0),
+            category_1 DECIMAL(2,1) NOT NULL CHECK (category_1 >= 0 AND category_1 <= 5 AND category_1 % 0.5 = 0),
+            category_2 DECIMAL(2,1) NOT NULL CHECK (category_2 >= 0 AND category_2 <= 5 AND category_2 % 0.5 = 0),
+            category_3 DECIMAL(2,1) NOT NULL CHECK (category_3 >= 0 AND category_3 <= 5 AND category_3 % 0.5 = 0),
             outfit_id int,
             FOREIGN KEY (outfit_id) REFERENCES outfits(id) ON DELETE CASCADE,
             account_id int,

@@ -1,18 +1,20 @@
 from pydantic import BaseModel
 from typing import List
 from routers.pool import pool
+from queries.ratings import RatingOut
 
 class OutfitIn(BaseModel):
     img_url: str
     style: str ##literal?
     occasion: str | None
-    account_id: int
+    # account_id: int
 
 class OutfitOut(BaseModel):
     img_url: str
     style: str
     occasion: str | None
     id: int
+    account_id: int
     # ratings: List[RatingOut]
 
 class AllOutfits(BaseModel):

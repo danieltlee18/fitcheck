@@ -15,7 +15,7 @@ def list_outfits(outfit = Depends(authenticator.get_current_account_data)) -> Al
             with conn.cursor() as db:
                 db.execute(
                     """
-                    SELECT id, img_url, style, occasion
+                    SELECT id, img_url, style, occasion, account_id
                     FROM outfits
                     ORDER BY id
                     """
@@ -26,7 +26,8 @@ def list_outfits(outfit = Depends(authenticator.get_current_account_data)) -> Al
                         id = record[0],
                         img_url = record[1],
                         style = record[2],
-                        occasion = record[3]
+                        occasion = record[3],
+                        account_id=record[4]
                     )
                     results.append(outfit)
                 return {"outfits":results}
@@ -38,7 +39,7 @@ def list_outfits(outfit = Depends(authenticator.get_current_account_data)) -> Al
 def create_outfit(outfit: OutfitIn, curr_account: Optional[dict]=Depends(authenticator.try_get_current_account_data)) -> OutfitOut: #queries: OutfitQueries = Depends()
     if curr_account:
         account_id = curr_account["id"]
-
+        ### query thing here with id from acc_id if needed
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
