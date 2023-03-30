@@ -1,11 +1,13 @@
 from pydantic import BaseModel
+from queries.ratings import RatingIn, RatingOut, RatingRepo
+from fastapi import Depends, APIRouter
 
-# from routers import users, trucks
+router = APIRouter()
 
 
-
-class RatingOut(BaseModel):
-    outfit_id: int
-    category_1: int
-    category_2: int
-    category_3: int
+@router.post("/api/outfits/{outfit_id}/ratings", response_model=RatingOut)
+def create_rating(
+    rating: RatingIn,
+    repo: RatingRepo = Depends(),
+    ) -> RatingOut:
+    return repo.create_rating(rating)

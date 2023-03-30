@@ -15,19 +15,15 @@ class AuthenticateUser(Authenticator):
     ):
         # Use your repo to get the account based on the
         # username
-        print("THIS IS NOT ACCOUNTS1:", accounts)
         return accounts.get(username)
 
 
     def get_account_getter(
-
+        self,
         accounts: AccountQueries = Depends(),
     ):
         # Return the accounts. That's it.
-        print("THIS IS NOT ACCOUNT2:", accounts)
-        account = AccountQueries()
-
-        return account
+        return accounts
 
     def get_hashed_password(self, account: AccountOutWithPassword):
         # Return the encrypted password value from your

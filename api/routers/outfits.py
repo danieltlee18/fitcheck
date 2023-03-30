@@ -1,15 +1,15 @@
-from fastapi import APIRouter, Depends, Response
+from fastapi import APIRouter, Depends, Response, HTTPException, status
 from pydantic import BaseModel
 from .ratings import RatingOut
-from typing import List
+from typing import List, Optional
 from .pool import pool
 from queries.outfits import OutfitIn, OutfitOut, AllOutfits
-
+from queries.authenticator import authenticator
 
 router = APIRouter()
 
 @router.get("/api/outfits", response_model = AllOutfits)
-def list_outfits() -> AllOutfits: #queries: OutfitQueries = Depends()
+def list_outfits(outfit = Depends(authenticator.get_current_account_data)) -> AllOutfits: #queries: OutfitQueries = Depends()
     try:
         with pool.connection() as conn:
             with conn.cursor() as db:
@@ -35,19 +35,26 @@ def list_outfits() -> AllOutfits: #queries: OutfitQueries = Depends()
     return {"message" : "could not get all outfits"}
 
 @router.post("/api/outfits", response_model = OutfitOut)
-def create_outfit(outfit: OutfitIn) -> OutfitOut: #queries: OutfitQueries = Depends()
-    with pool.connection() as conn:
-        with conn.cursor() as db:
-            result = db.execute(
-                """
-                INSERT INTO outfits
-                    (img_url, style, occasion)
-                VALUES
-                    (%s, %s, %s)
-                RETURNING id;
-                """,
-                [outfit.img_url, outfit.style, outfit.occasion]
-            )
-            id = result.fetchone()[0]
-            old_data = outfit.dict()
-            return {"id":id, "ratings": [], **old_data}
+def create_outfit(outfit: OutfitIn, curr_account: Optional[dict]=Depends(authenticator.try_get_current_account_data)) -> OutfitOut: #queries: OutfitQueries = Depends()
+    if curr_account:
+        account_id = curr_account["id"]
+
+        with pool.connection() as conn:
+            with conn.cursor() as db:
+                result = db.execute(
+                    """
+                    INSERT INTO outfits
+                        (img_url, style, occasion, account_id)
+                    VALUES
+                        (%s, %s, %s, %s)
+                    RETURNING id;
+                    """,
+                    [outfit.img_url, outfit.style, outfit.occasion, account_id]
+                )
+                id = result.fetchone()[0]
+                old_data = outfit.dict()
+                return {"id":id, "ratings": [], **old_data, "account_id":account_id}####FixToIncludeRatings
+    raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User is not currently logged in",
+        )

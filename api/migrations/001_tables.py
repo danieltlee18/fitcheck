@@ -23,7 +23,7 @@ steps = [
             style VARCHAR(200) NOT NULL,
             occasion VARCHAR(500),
             account_id int,
-            FOREIGN KEY (account_id) REFERENCES accounts(id)
+            FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
@@ -40,9 +40,9 @@ steps = [
             category2 DECIMAL(2,1) NOT NULL CHECK (category2 >= 0 AND category2 <= 5 AND category2 % 0.5 = 0),
             category3 DECIMAL(2,1) NOT NULL CHECK (category3 >= 0 AND category3 <= 5 AND category3 % 0.5 = 0),
             outfit_id int,
-            FOREIGN KEY (outfit_id) REFERENCES outfits(id),
+            FOREIGN KEY (outfit_id) REFERENCES outfits(id) ON DELETE CASCADE,
             account_id int,
-            FOREIGN KEY (account_id) REFERENCES accounts(id)
+            FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE
         );
         """,
         # "Down" SQL statement
