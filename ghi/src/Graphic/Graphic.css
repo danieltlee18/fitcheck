@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'thick';
+    src: url('../fonts/Digitalt-04no.ttf');
+    font-weight: 700;
+}
+.wrapper{
+    position: relative;
+    font-family: thick;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+canvas{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    top: 10vh;
+    right: 0;
+    scale: 1.4;
+    align-self: center;
+}
+@media (max-width: 1424px) {
+  canvas {
+    transform: scale(0.8) translateX(150px) translateY(-50px);
+  }
+  .content{
+    transform: scale(0.8) translateX(-150px);
+  }
+}
+.content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    top: 20vh;
+}
+.content h1{
+    font-size: 4em;
+    margin: 0;
+}
+
+.content h1, p{
+    margin: 0 30px 0 100px;
+}
+
+.buttons{
+    display: flex;
+    flex-direction: row;
+}
+.content button {
+    font-weight: 700;
+    font-family: thick;
+    color: #fff;
+    border: 5px solid #fff;
+    padding: 18px 34px;
+    font-size: 30px;
+    margin-left: 18px;
+    position: relative;
+    background-color: transparent;
+    transition: 0.3s ease-in-out;
+    width: 12vw;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    cursor: pointer;
+}
+.content button::before {
+    content: "";
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    left: 0;
+    top: 0;
+    transition: 0.3s ease-in-out;
+    z-index: -1;
+}
+.content button:hover {
+    color: #121212;
+}
+.content button:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
