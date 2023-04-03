@@ -1,0 +1,33 @@
+.nav{
+    width: 100vw;
+    height: 13vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2em;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    height: 9vh;
+    width: 18vw;
+    border: 5px solid rgba(255, 255, 255, 0.554);
+    border-radius: 1em;
+    cursor: pointer;
+    transition: 500ms;
+    color: rgba(255, 255, 255, 0.587);
+}
+
+.button:hover{
+    border: 5px solid white;
+    background-color: rgba(255, 0, 212, 0.247);
+    color: white;
+}
+
+.nav a{
+    text-decoration: none;
+}

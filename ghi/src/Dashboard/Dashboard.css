@@ -1,0 +1,307 @@
+@font-face {
+    font-family: 'thick';
+    src: url('../fonts/Digitalt-04no.ttf');
+    font-weight: 700;
+}
+
+html {
+  background-color: #282b30;
+  font-family: 'thick';
+}
+body{
+    font-family: 'thick';
+}
+.navbar{
+    position: absolute;
+    z-index: 99999;
+}
+.footer{
+    position: fixed;
+    z-index: 99999;
+    bottom: 0;
+}
+.spacer {
+    width: 100vw;
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: none;
+}
+
+.layer1 {
+    background-image: url("./images/layered-waves-haikei.svg");
+    background-size: cover;
+    height: 50%;
+    width: 100vw;
+    position: static;
+    aspect-ratio: none;
+}
+
+.flip {
+    transform: rotate(180deg);
+}
+
+.pink {
+    height: 100vh;
+    width: 100vw;
+}
+
+#blob2_left {
+    display: none;
+}
+#blob2_right {
+    display: none;
+}
+
+#pink-blobs {
+    width: 100vw;
+    height: 65.5vh;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.122);
+    backdrop-filter: blur(7px);
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10%;
+}
+
+#pink-blobs svg {
+    width: 100%;
+    height: fit-content;
+    border: 5px solid rgba(255, 255, 255, 0.525);
+    border-radius: 10%;
+}
+
+/** MENU USER DASH **/
+.menu-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+}
+.menu{
+    width: 100vw;
+    height: 65.5vh;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    text-align: center;
+    z-index: 9999;
+    background-color: rgba(255, 255, 255, 0.122);
+    backdrop-filter: blur(7px);
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10%;
+}
+.left{
+    height: 100%;
+    width: 100%;
+    border-radius: 15%;
+    scale: .95;
+    border: 10px solid #ffffff;
+    background-color: #282b30f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: stretch;
+    row-gap: .1em;
+}
+.left h1{
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+}
+.outfit-summary{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: .1em;
+    scale: .9;
+    justify-content: space-evenly center;
+    height: 100%;
+    width: 95%;
+    background-color: #4c525c;
+    border-radius: 2em;
+    padding: 5px;
+}
+
+.img-box{
+    border: 2px solid white;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    max-height: 95%;
+    border-radius: 2em;
+    position: relative;
+    overflow: hidden;
+    margin-left: 1em;
+}
+
+.img-box img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.ratings{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    row-gap: 30px;
+    scale: .8;
+}
+.rating{
+    border: 2px solid white;
+    row-gap: 5px;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #424549;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.rating p{
+    position: absolute;
+    z-index: 1;
+    font-size: 2em;
+    letter-spacing: 1em;
+    color: rgba(255, 255, 255, 0.581);
+    padding: 0;
+    margin: 0 0 0 20px;
+}
+.percentage{
+    width: 80%;
+    background-color: blue;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 25px 25px 0;
+    border-right: 5px solid rgba(255, 255, 255, 0.29);
+}
+.percentage2{
+    width: 45%;
+    background-color: rgb(0, 211, 11);
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 25px 25px 0;
+    border-right: 5px solid rgba(255, 255, 255, 0.582);
+}
+.percentage3{
+    width: 60%;
+    background-color: rgb(157, 0, 210);
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 25px 25px 0;
+    border-right: 5px solid rgba(255, 255, 255, 0.29);
+}
+
+.right{
+    height: 100%;
+    width: 100%;
+    border-radius: 15%;
+    scale: .95;
+    border: 10px solid #ffffff;
+    background-color: #282b30f1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.card{
+    background-color: white;
+    height: 50vh;
+    width: 20vw;
+    border: 7px solid white;
+    max-height: 100%;
+    border-radius: 15%;
+    position: relative;
+}
+
+.cardBG{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+    object-fit: cover;
+}
+
+.sil{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 15%;
+    object-fit: contain;
+}
+.category{
+    display: flex;
+    flex-direction: column;
+}
+
+select{
+    height: 8vh;
+    width: 16vw;
+    border: 3px solid #ffffff;
+    border-radius: 25px 25px 25px 25px;
+    background-color: rgba(255, 0, 247, 0.131);
+    font-size: 2em !important;
+    color: #ffffff;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+    font: inherit;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dashButton {
+    height: 8vh;
+    width: 16vw;
+    border: 3px solid #ffffff;
+    border-radius: 25px 25px 25px 25px;
+    background-color: rgba(255, 0, 247, 0.131);
+    font-size: 2em !important;
+    color: #ffffff;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+    font: inherit;
+    cursor: pointer;
+}
+
+.dashButton::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100%;
+    background-color: #ea00ffab;
+    transition: transform 600ms ease-in-out;
+    transform: scaleX(0);
+    z-index: -9999;
+    }
+
+.dashButton:hover::before,
+.dashButton:focus::before{
+    transform: scaleX(1);
+    overflow: hidden;
+}

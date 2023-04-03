@@ -1,0 +1,141 @@
+.rate-wrapper{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-piece-frame{
+    width: 64vw;
+    height: 68vh;
+    background-color: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(7px);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
+}
+.center-piece{
+    width: 60vw;
+    height: 60vh;
+    background-color: #282b30;
+    border: 10px solid white;
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    overflow: hidden;
+    position: relative;
+}
+.outfit{
+    border-right: 1vw solid white;
+    object-fit: cover;
+    max-width: 27vw;
+    overflow: scroll;
+}
+.aspects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+}
+.aspect{
+    float: left;
+    width: 100%;
+    margin-left: 5vw;
+}
+.rating-bar{
+    width: 80%;
+    height: 5vh;
+    border: 3px solid white;
+    background-color: rgba(255, 255, 255, 0.728);
+    border-radius: 50px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    overflow: hidden;
+}
+.score{
+    color: gray;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+.style-score-button{
+    border: none;
+    border-right: 5px solid rgba(128, 128, 128, 0.472);
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    font-size: inherit;
+    font-family: thick;
+    color: gray;
+    cursor: pointer;
+    transition: 500ms;
+}
+.style-score-button:hover{
+    background-color: rgba(0, 0, 255, 0.318);
+}
+.style-clicked{
+    background-color: blue;
+    color: white;
+}
+
+.creativity-score-button{
+    border: none;
+    border-right: 5px solid rgba(128, 128, 128, 0.472);
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    font-size: inherit;
+    font-family: thick;
+    color: gray;
+    cursor: pointer;
+    transition: 500ms;
+}
+.creativity-score-button:hover{
+    background-color: rgba(172, 255, 47, 0.318);
+}
+.creativity-clicked{
+    background-color: rgb(157, 227, 50);
+    color: white;
+}
+
+.suitability-score-button{
+    border: none;
+    border-right: 5px solid rgba(128, 128, 128, 0.472);
+    height: 100%;
+    width: 100%;
+    background-color: inherit;
+    font-size: inherit;
+    font-family: thick;
+    color: gray;
+    cursor: pointer;
+    transition: 500ms;
+}
+.suitability-score-button:hover{
+    background-color: rgba(229, 0, 229, 0.318);
+}
+.suitability-clicked{
+    background-color: rgb(229, 0, 229);
+    color: white;
+}
+
+
+.submit-rating{
+    margin-top: 3vh;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 50px;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 255, 0.422);
+    font-family: thick;
+    font-size: .5em;
+    color: white;
+    transition: 500ms;
+    cursor: pointer;
+}
+.submit-rating:hover{
+    background-color: blue;
+}
