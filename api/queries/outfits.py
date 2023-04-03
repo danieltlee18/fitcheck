@@ -72,7 +72,6 @@ class OutfitRepo:
 
                     for value in results_dict.values():
                         results.append(value)
-                    print("AAAAAAAAAAAAAAAAAAAAAAAAAAA", results)
                     return {"outfits": results}
         except Exception as e:
             print(e)

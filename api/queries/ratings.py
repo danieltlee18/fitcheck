@@ -9,7 +9,7 @@ class RatingIn(BaseModel):
     category_1: float
     category_2: float
     category_3: float
-    outfit_id:  int
+    # outfit_id:  int
 
 
 class RatingOut(BaseModel):
@@ -41,7 +41,8 @@ class RatingRepo:
     def create_rating(
             self,
             rating: RatingIn,
-            account_id: int
+            account_id: int,
+            outfit_id: int
             ) -> RatingOut:
         if (
             rating.category_1 % .5 != 0 or rating.category_1 < 0 or rating.category_1 > 5
@@ -63,7 +64,7 @@ class RatingRepo:
                     RETURNING
                         id, category_1, category_2, category_3, outfit_id, account_id;
                     """,
-                    [rating.category_1, rating.category_2, rating.category_3, rating.outfit_id, account_id]
+                    [rating.category_1, rating.category_2, rating.category_3, outfit_id, account_id]
                 )
                 db_rating = result.fetchall()[0]
                 print("DB________RATING", db_rating[0])
@@ -77,4 +78,3 @@ class RatingRepo:
                     )
 
                 return rating_out
-
