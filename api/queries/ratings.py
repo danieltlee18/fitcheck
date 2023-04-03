@@ -77,3 +77,4 @@ class RatingRepo:
                     )
 
                 return rating_out
+
