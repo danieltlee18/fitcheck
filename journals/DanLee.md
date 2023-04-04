@@ -7,3 +7,5 @@
 3/30 - Now able to create a rating and the rating is associated with the ID of the account that made the rating. Also made it so only one rating per outfit is allowed based on the account's id.
 
 4/3 - Worked with the group through a liveshare to refactor all of our code in queries and router files to make the code make more sense for the purpose of the files. Fixed code so that rating will be attached to outfits when listing outfits. 90% done with back-end just need to add delete functions for outfits and figure out how we will average out the ratings
+
+4/4 - Created a delete function for outfits and finalized the skeleton/mvp of our back-end. Started working on front-end as a group and created a log-in functionality that popped up with a blurry background upon pressing the log-in button on the landing page. Also created a button on the landing page that would pop up at the same time as the login/signup page that would make the pop ups disappear.
