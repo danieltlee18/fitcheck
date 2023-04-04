@@ -102,3 +102,39 @@ class OutfitRepo:
     #         status_code=status.HTTP_401_UNAUTHORIZED,
     #         detail="User is not currently logged in",
     #     )
+
+    def delete_outfit(
+            self,
+            outfit_id,
+            curr_account_id
+    ):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT account_id FROM outfits
+                        WHERE id = %s
+                        """,
+                        [outfit_id]
+                    )
+                    account_id = db.fetchone()[0]
+        except Exception as e:
+            print(e)
+            return False
+        if curr_account_id == account_id:
+            try:
+                with pool.connection() as conn:
+                    with conn.cursor() as db:
+                        db.execute(
+                            """
+                            DELETE FROM outfits
+                            WHERE id = %s
+                            """,
+                            [outfit_id]
+                        )
+                        return True
+            except Exception as e:
+                print(e)
+                return False
+        return False
