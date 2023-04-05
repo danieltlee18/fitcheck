@@ -4,6 +4,7 @@ import Dashboard from './Dashboard/Dashboard.js'
 import Graphic from './Graphic/Graphic.js';
 import Rate from './Rate/Rate.js'
 import Login from './Login/Login';
+import Signup from './Signup/signup';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
           <Route path="/" element={<Graphic />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/rate" element={<Rate />}></Route>
-          <Route path ="/login" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
