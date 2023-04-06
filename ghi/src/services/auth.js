@@ -16,7 +16,6 @@ export const authApi = createApi({
         login: builder.mutation({
             query: (body) => {
                 const formData = new FormData()
-                console.log(process.env.REACT_APP_FitCheck_API_HOST);
                 formData.append('username', body.username)
                 formData.append('password', body.password)
                 return {
@@ -42,16 +41,17 @@ export const authApi = createApi({
                 formData.append('username', body.username)
                 formData.append('email', body.email)
                 formData.append('password', body.password)
+                // formData.append('passwordConfirmation', body.passwordConfirmation)
                 return {
-                    url: '/api/accounts',
-                    method: 'POST',
-                    body: formData,
-                    credentials: "include"
-                }
+                    url: "/api/accounts",
+                    method: "POST",
+                    body: body,
+                    credentials: "include",
+                };
             },
             invalidatesTags: ['Account']
         })
     })
 })
 
-export const { useGetAccountQuery, useLogoutMutation, useLoginMutation } = authApi;
+export const { useGetAccountQuery, useLogoutMutation, useLoginMutation, useSignupMutation } = authApi;

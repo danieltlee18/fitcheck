@@ -52,4 +52,4 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
-# @router.get("/api/accounts", response_model=AccountOutWithPassword)
+
