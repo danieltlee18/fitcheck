@@ -37,10 +37,10 @@ export const authApi = createApi({
 
         signup: builder.mutation({
             query: (body) => {
-                const formData = new FormData()
-                formData.append('username', body.username)
-                formData.append('email', body.email)
-                formData.append('password', body.password)
+                // const formData = new FormData()
+                // formData.append('username', body.username)
+                // formData.append('email', body.email)
+                // formData.append('password', body.password)
                 // formData.append('passwordConfirmation', body.passwordConfirmation)
                 return {
                     url: "/api/accounts",

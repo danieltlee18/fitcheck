@@ -22,6 +22,8 @@ const Signup = () => {
         e.preventDefault()
         if (fields.password != fields.passwordConfirmation) {
             dispatch(error('Password does not match confirmation'))
+            dispatch(reset());
+
             return;
         } else {
             console.log(fields)
@@ -29,6 +31,7 @@ const Signup = () => {
                 username: fields.username,
                 email: fields.email,
                 password: fields.password,
+                foo: "bar"
             })
             dispatch(reset())
             navigate("/dashboard");
