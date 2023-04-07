@@ -1,14 +1,16 @@
 import './Navbar.css'
 import {Link} from 'react-router-dom'
+import { useLogoutMutation } from "../services/auth"
 
 const Navbar = () => {
+  const [logout] = useLogoutMutation();
     return (
       <div className="nav">
-        <a href='/dashboard' className="button"> Dashboard </a>
+        <Link to='/dashboard' className="button"> Dashboard </Link>
         <div className="button"> My Outfits </div>
-        <a href='/rate' className="button"> Rate Outfits </a>
+        <Link to='/rate' className="button"> Rate Outfits </Link>
         <div className="button"> Upload <br />New Outfit </div>
-        <a href='/' className="button"> Logout </a>
+        <Link to='/' onClick={logout} className="button"> Logout </Link>
       </div>
     );
 }
