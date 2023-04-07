@@ -14,3 +14,9 @@
 
 
 04/04/23 | Finished the login page for the front-end, and got it to mesh well with the design we currently have. We worked with different CSS stylings to get things where we wanted them to be and to get the functinality we wanted.
+
+
+04/05/23 | We worked on getting the Redux set up so that we can implement the front-end signup and login functionalities. We have the code in place, so we should just have to connect it to our login and signup JSX.
+
+
+04/06/23 | Today we finished up the front-end signup and login functionalities. A user is now able to create an account, which will redirect them to the dashboard of our website. A user is also able to login which will also redirect them to the dashboard of the site. We just need to implement the logout functionality and then authentication should be complete.
