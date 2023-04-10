@@ -1,22 +1,37 @@
 import "./Login.css";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {handleUsernameChange, handlePasswordChange}  from "../features/auth/loginSlice"
+import {handleUsernameChange, handlePasswordChange, reset}  from "../features/auth/loginSlice"
+import { useLoginMutation } from "../services/auth";
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
     const dispatch = useDispatch();
+    const [login] = useLoginMutation()
     const { fields } = useSelector((state) => state.login);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("handleSubmit");
+        try {
+            const result = await login(fields)
+            dispatch(reset())
+            console.log(result)
+            if (result.data?.access_token) {
+                navigate("/dashboard");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
     };
 
     return (
         <section className="login-wrapper">
             <div className="login-card">
                 <h1>Login</h1>
-                <form className="login-form">
+                <form onSubmit={handleSubmit} className="login-form">
                     <div className="inputs">
                         <label className="login-labels" for="username">
                             Username

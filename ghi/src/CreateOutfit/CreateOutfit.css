@@ -1,0 +1,34 @@
+.create-outfit-form {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.create-outfit-form form{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 35%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.outfit-center-piece{
+    width: 60vw;
+    height: 60vh;
+    background-color: #282b30;
+    border: 10px solid white;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.create-outfit-select {
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.5em !important;
+}

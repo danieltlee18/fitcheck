@@ -9,18 +9,33 @@ import {
     reset,
     error,
 } from "../features/auth/signupSlice";
+import { useSignupMutation } from '../services/auth';
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const dispatch = useDispatch()
     const { errorMessage, fields } = useSelector(state => state.signup)
+    const [signup] = useSignupMutation();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (fields.password != fields.passwordConfirmation) {
             dispatch(error('Password does not match confirmation'))
+            dispatch(reset());
+
             return;
+        } else {
+            console.log(fields)
+            const result = await signup({
+                username: fields.username,
+                email: fields.email,
+                password: fields.password,
+                foo: "bar"
+            })
+            dispatch(reset())
+            navigate("/dashboard");
         }
-        console.log('handleSubmit');
     }
 
 
@@ -28,7 +43,7 @@ const Signup = () => {
         <section className="signup-wrapper">
             <div className="signup-card">
                 <h1>signup</h1>
-                <form className="signup-form">
+                <form onSubmit={handleSubmit} className="signup-form">
                     <div className="inputs">
                         <label className="signup-labels" for="username">
                             Username
@@ -96,7 +111,7 @@ const Signup = () => {
                             required
                         ></input>
                     </div>
-                    <button className="signup-button">Log In</button>
+                    <button className="signup-button">Sign Up</button>
                 </form>
             </div>
         </section>

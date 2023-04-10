@@ -9,3 +9,9 @@
 4/3 - Worked with the group through a liveshare to refactor all of our code in queries and router files to make the code make more sense for the purpose of the files. Fixed code so that rating will be attached to outfits when listing outfits. 90% done with back-end just need to add delete functions for outfits and figure out how we will average out the ratings
 
 4/4 - Created a delete function for outfits and finalized the skeleton/mvp of our back-end. Started working on front-end as a group and created a log-in functionality that popped up with a blurry background upon pressing the log-in button on the landing page. Also created a button on the landing page that would pop up at the same time as the login/signup page that would make the pop ups disappear.
+
+4/5 - Sam started work on finishing up the front-end side of the sign-up page as well as using redux to create the forms. Have not yet started connecting it with the back-end and I think we still have some front-end AUTH to finish
+
+4/6 - Finished up front-end authentication as well as log-in and sign-up functionality. When signing up or logging in, upon a successful request, the page will redirect the logged-in user to the dashboard where they will be able to use all the functionalities to be implemented later
+
+4/7 - Added a logout functionality that will delete the user's cookies upon clicking the logout button and started working on creating an outfit by connecting the back-end with our newly created frontend file
