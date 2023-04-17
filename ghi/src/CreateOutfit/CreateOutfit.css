@@ -17,6 +17,23 @@
     align-items: center;
 }
 
+.label-input{
+    width: 60%;
+    font-family: thick;
+    display: flex;
+    flex-direction: column;
+}
+.label-input label{
+    font-size: 2em;
+}
+.label-input input{
+    font-family: thick;
+    height: 2.5vh;
+    font-size: 1.5em;
+}
+.label-input input::placeholder{
+    color: rgba(0, 0, 0, 0.25);
+}
 .outfit-center-piece{
     width: 60vw;
     height: 60vh;
@@ -25,10 +42,31 @@
     border-radius: 50px;
     overflow: hidden;
     position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
-
+.left-side{
+    overflow: hidden;
+}
+.left-side-bg{
+    width: 100%;
+}
+.left-side-purple{
+    position: absolute;
+    width: 50%;
+    border-right: 10px solid white;
+}
+.left-side-people{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+}
 .create-outfit-select {
-    width: fit-content;
+    width: 60%;
+    margin-top: 2vh;
+    padding: 2%;
     height: fit-content;
     font-size: 1.5em !important;
+    border-radius: 15px;
+    margin-bottom: 0px;
 }

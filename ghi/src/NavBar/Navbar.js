@@ -7,10 +7,15 @@ const Navbar = () => {
     return (
       <div className="nav">
         <Link to='/dashboard' className="button"> Dashboard </Link>
+
         <div className="button"> My Outfits </div>
+
         <Link to='/rate' className="button"> Rate Outfits </Link>
-        <div className="button"> Upload <br />New Outfit </div>
+
+        <Link to='/createoutfit' className="button"> Upload <br />New Outfit </Link>
+
         <Link to='/' onClick={logout} className="button"> Logout </Link>
+
       </div>
     );
 }
