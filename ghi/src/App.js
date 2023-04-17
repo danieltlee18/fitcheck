@@ -6,6 +6,7 @@ import Rate from './Rate/Rate.js'
 import Login from './Login/Login';
 import Signup from './Signup/signup';
 import CreateOutfit from './CreateOutfit/CreateOutfit';
+import UserOutfits from './UserOutfits/UserOutfits';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup/>}></Route>
           <Route path="/createoutfit" element={<CreateOutfit/>}></Route>
+          <Route path="/outfits" element={<UserOutfits/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
