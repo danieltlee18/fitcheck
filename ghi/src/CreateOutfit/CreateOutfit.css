@@ -70,3 +70,20 @@
     border-radius: 15px;
     margin-bottom: 0px;
 }
+
+.signup-button{
+    margin-top: 3vh;
+    height: 5vh;
+    width: 10vw;
+    border-radius: 50px;
+    border: 3px solid white;
+    background-color: rgba(0, 0, 255, 0.422);
+    font-family: thick;
+    font-size: 1.25em;
+    color: white;
+    transition: 500ms;
+    cursor: pointer;
+}
+.signup-button:hover{
+    background-color: blue;
+}

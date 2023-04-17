@@ -31,7 +31,6 @@ const Signup = () => {
                 username: fields.username,
                 email: fields.email,
                 password: fields.password,
-                foo: "bar"
             })
             dispatch(reset())
             navigate("/dashboard");
