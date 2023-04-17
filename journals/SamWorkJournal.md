@@ -5,3 +5,9 @@
 29-Mar	Day3, Seemed to get Auth working, fleshing out the ratings and outfit pathes. Got outfit creation working with auth id, working on ratings too. Amro split off to do front-end stuff. Logan, Dan and I (sam) worked together in live share, we decided to take turns who shares screen and does git stuff.
 
 30-Mar	day4 of coding. Create rating working and assosiates rating with user who created it. Added some data integrety protection, ensuring ratings are the correct value and you cannot submit more than one rating per outfit with 400 codes. I coded with Logan and Dan assisting in live workspace as well as screen sharing. Amro working on his front end magic
+
+3-Apr	Added ratings to be included for each outfit when we list outfits. Refactored code for logic to be in queries not in router. Dan was the point man on the keyboard while we group programmed. Made api more restful
+4-Apr	Dan on point for group formating to start and amro finishing up for the afternoon. Completed back-end functionality (Delete outfit). Started on front end login functionality
+5-Apr	Built signup form, added redux store state functionality. Implemented store state for  login and signup form. Queries coming next. I coded.
+6-Apr	Logan the man on the keyboard today. Got login and signup talking to backend with redux. Now creates accounts and logs them in.
+7-Apr	Dan and Amro coded today. Logout functionality works. Started work on create outfit page. Now dynamically loads image and shows preview when you paste a url
