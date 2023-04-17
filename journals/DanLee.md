@@ -15,3 +15,5 @@
 4/6 - Finished up front-end authentication as well as log-in and sign-up functionality. When signing up or logging in, upon a successful request, the page will redirect the logged-in user to the dashboard where they will be able to use all the functionalities to be implemented later
 
 4/7 - Added a logout functionality that will delete the user's cookies upon clicking the logout button and started working on creating an outfit by connecting the back-end with our newly created frontend file
+
+4/17 - Created a functional "create outfits" page that will take in the inputs of a user on the form and push that information to the back-end where their outfit will be created. Also started working on creating a list outfits page that will also show user's outfits along with the associated ratings
