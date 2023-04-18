@@ -32,7 +32,7 @@ const Login = () => {
             <div className="login-card">
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit} className="login-form">
-docker                    <div className="inputs">
+                    <div className="inputs">
                         <label className="login-labels" for="username">
                             Username
                         </label>

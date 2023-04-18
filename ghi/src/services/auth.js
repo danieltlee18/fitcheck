@@ -10,7 +10,6 @@ export const authApi = createApi({
     endpoints: (builder) => ({
         getAccount: builder.query({
             query: () => '/token',
-            transformResponse: (response) => response?.account,
             providesTags: ['Account']
         }),
         login: builder.mutation({

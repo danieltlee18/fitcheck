@@ -13,11 +13,10 @@ export const outfitApi = createApi({
             url: "api/outfits",
             method: "POST",
             body: body,
-            // credentials: "include",
+            credentials: "include",
         };
       },
-    //   transformResponse: (response) => response?.account,
-      invalidateTags: ["Outfits"],
+      // invalidateTags: ["Outfits"],
     }),
     listOutfit: builder.query({
       query: () => "api/outfits",

@@ -19,6 +19,7 @@ from queries.accounts import (
     DuplicateAccountError,
     AccountOutWithPassword
 )
+from queries.authenticator import authenticator
 
 class AccountForm(BaseModel):
     username: str
@@ -52,4 +53,18 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
+@router.get("/token", response_model=AccountOut | HttpError)
+async def get_account(
+    repo: AccountQueries = Depends(),
+    curr_account: dict=Depends(authenticator.get_current_account_data)
+) -> AccountOut:
+    return curr_account
 
+
+# @router.get("/api/outfits", response_model = AllOutfits)
+# def list_outfits(
+#     repo: OutfitRepo = Depends()
+#     # curr_account: dict=Depends(authenticator.get_current_account_data)
+# ) -> AllOutfits:
+#     outfits = repo.list_outfits()
+#     return outfits

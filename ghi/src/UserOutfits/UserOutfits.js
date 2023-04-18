@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { useCreateOutfitMutation } from "../services/outfit";
 import { useListOutfitQuery } from "../services/outfit"
+import { useGetAccountQuery } from "../services/auth";
 import {
   handleImgUrlChange,
   handleStyleChange,
@@ -15,10 +16,12 @@ import {
 
 const UserOutfits = () => {
   const dispatch = useDispatch()
-  const {data: outfits, isLoading} = useListOutfitQuery();
-  console.log(outfits)
+  const { data: outfits, isLoading } = useListOutfitQuery()
+  const { data: user, isLoading: isUserLoading } = useGetAccountQuery()
+  console.log(user)
 
-  if (isLoading){
+
+  if (isLoading || isUserLoading){
     return <div>loading your data</div>
   }
 
@@ -69,11 +72,12 @@ const UserOutfits = () => {
               <div className="center-piece-frame">
                   <div className="outfit-center-piece">
                       {
-                      outfits.map((outfit)=>{
+                      outfits.filter((outfit) => outfit.account_id == user.id ).map((outfit)=>{
                         console.log(outfit)
 
                         return (
-                            <div className="outfit-summary">
+
+                            <div key={outfit.id} className="outfit-summary">
                                 <div className="img-box">
                                     <img src={outfit.img_url} />
                                 </div>
