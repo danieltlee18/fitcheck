@@ -7,12 +7,12 @@ export const ratingApi = createApi({
     credentials: "include", // sends cookie to FastAPI
   }),
   endpoints: (builder) => ({
-    rateOutfit: builder.mutation({
+    createRating: builder.mutation({
       query: (body) => {
         return {
-          url: "api/outfits/{outfit_id}/ratings",
+          url: `api/outfits/${body.outfit_id}/ratings`,
           method: "POST",
-          body: body,
+          body: body.rating,
           credentials: "include",
         };
       },
@@ -21,4 +21,4 @@ export const ratingApi = createApi({
   }),
 });
 
-export const { useCreateOutfitMutation, useListOutfitQuery } = outfitApi;
+export const { useCreateRatingMutation } = ratingApi;
