@@ -53,6 +53,7 @@ class RatingRepo:
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Illegal rating value, value must be between between 0,5 inclusive and evenly divisible by .5",
             )
+        result = None
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -66,19 +67,22 @@ class RatingRepo:
                     """,
                     [rating.category_1, rating.category_2, rating.category_3, outfit_id, account_id]
                 )
+
                 db_rating = result.fetchall()[0]
-                print("DB________RATING", db_rating[0])
-                rating_out = RatingOut(
-                    id=db_rating[0],
-                    category_1=db_rating[1],
-                    category_2=db_rating[2],
-                    category_3=db_rating[3],
-                    outfit_id=db_rating[4],
-                    account_id=db_rating[5]
-                    )
-                avg = self.get_avg_rating(rating_out.outfit_id)
-                self.update_outfit_average_rating(rating_out.outfit_id, avg)
-                return rating_out
+        print("DB________RATING", db_rating[0])
+
+        rating_out = RatingOut(
+            id=db_rating[0],
+            category_1=db_rating[1],
+            category_2=db_rating[2],
+            category_3=db_rating[3],
+            outfit_id=db_rating[4],
+            account_id=db_rating[5]
+            )
+        avg = self.get_avg_rating(rating_out.outfit_id)
+        print("AAAAVVVEEERRAGE", avg, rating_out.outfit_id)
+        self.update_outfit_average_rating(rating_out.outfit_id, avg)
+        return rating_out
 
     def get_ratings(
             self,
@@ -124,6 +128,8 @@ class RatingRepo:
             total += rating.category_1 + rating.category_2 + rating.category_3
         print("BBBBBBBBBBBBBB", total)
         return  total/(len(results) * 3) if len(results) > 0 else 0
+
+
     def update_outfit_average_rating(self, outfit_id: int, avg_rating:float):
         try:
             with pool.connection() as conn:
@@ -131,13 +137,14 @@ class RatingRepo:
                     db.execute("""
                         UPDATE outfits
                         SET avg_rating=%s
-                        WHERE (outfit_id=%s)
+                        WHERE outfits.id=%s
                         """,
                         [avg_rating, outfit_id]
                     )
-                    print("AVERAGE RATING:", avg_rating)
-        except Exception:
-            return Exception
+                    print("AVERAGE RATING:", avg_rating,"outfitid", outfit_id)
+        except Exception as e:
+            print("SOMETHING WENT WRONG", e)
+            return e
 
 
     # def list_outfits(
