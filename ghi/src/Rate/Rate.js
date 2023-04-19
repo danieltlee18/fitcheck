@@ -8,23 +8,28 @@ import { useCreateRatingMutation } from '../services/rating'
 import { useGetAccountQuery } from '../services/auth'
 
 const Rate = () => {
-    const [styleOneClicked, setStyleOneClicked] = useState(false)
-    const [styleTwoClicked, setStyleTwoClicked] = useState(false);
-    const [styleThreeClicked, setStyleThreeClicked] = useState(false);
-    const [styleFourClicked, setStyleFourClicked] = useState(false);
-    const [styleFiveClicked, setStyleFiveClicked] = useState(false);
+    // const [styleOneClicked, setStyleOneClicked] = useState(false)
+    // const [styleTwoClicked, setStyleTwoClicked] = useState(false);
+    // const [styleThreeClicked, setStyleThreeClicked] = useState(false);
+    // const [styleFourClicked, setStyleFourClicked] = useState(false);
+    // const [styleFiveClicked, setStyleFiveClicked] = useState(false);
 
-    const [creativityOneClicked, setCreativityOneClicked] = useState(false);
-    const [creativityTwoClicked, setCreativityTwoClicked] = useState(false);
-    const [creativityThreeClicked, setCreativityThreeClicked] = useState(false);
-    const [creativityFourClicked, setCreativityFourClicked] = useState(false);
-    const [creativityFiveClicked, setCreativityFiveClicked] = useState(false);
+    // const [creativityOneClicked, setCreativityOneClicked] = useState(false);
+    // const [creativityTwoClicked, setCreativityTwoClicked] = useState(false);
+    // const [creativityThreeClicked, setCreativityThreeClicked] = useState(false);
+    // const [creativityFourClicked, setCreativityFourClicked] = useState(false);
+    // const [creativityFiveClicked, setCreativityFiveClicked] = useState(false);
 
-    const [suitabilityOneClicked, setSuitabilityOneClicked] = useState(false);
-    const [suitabilityTwoClicked, setSuitabilityTwoClicked] = useState(false);
-    const [suitabilityThreeClicked, setSuitabilityThreeClicked] = useState(false);
-    const [suitabilityFourClicked, setSuitabilityFourClicked] = useState(false);
-    const [suitabilityFiveClicked, setSuitabilityFiveClicked] = useState(false);
+    // const [suitabilityOneClicked, setSuitabilityOneClicked] = useState(false);
+    // const [suitabilityTwoClicked, setSuitabilityTwoClicked] = useState(false);
+    // const [suitabilityThreeClicked, setSuitabilityThreeClicked] = useState(false);
+    // const [suitabilityFourClicked, setSuitabilityFourClicked] = useState(false);
+    // const [suitabilityFiveClicked, setSuitabilityFiveClicked] = useState(false);
+
+    const [buttonBar1, setButtonBar1] = useState()
+    const [buttonBar2, setButtonBar2] = useState()
+    const [buttonBar3, setButtonBar3] = useState()
+
 
     const { data: outfits, isLoading } = useListOutfitQuery();
     const [createRating] = useCreateRatingMutation();
@@ -33,45 +38,7 @@ const Rate = () => {
 
 
     const getCategoryRatings = () => {
-      const cat1 = [
-        styleOneClicked,
-        styleTwoClicked,
-        styleThreeClicked,
-        styleFourClicked,
-        styleFiveClicked];
-      const cat2 = [
-        creativityOneClicked,
-        creativityTwoClicked,
-        creativityThreeClicked,
-        creativityFourClicked,
-        creativityFiveClicked,
-      ];
-      const cat3 = [
-        suitabilityOneClicked,
-        suitabilityTwoClicked,
-        suitabilityThreeClicked,
-        suitabilityFourClicked,
-        suitabilityFiveClicked,
-      ];
-      let cat1Rating = 0;
-      for (const rating of cat1) {
-        if (rating) {
-          cat1Rating++;
-        }
-      }
-      let cat2Rating = 0;
-      for (const rating of cat2) {
-        if (rating) {
-          cat2Rating++;
-        }
-      }
-      let cat3Rating = 0;
-      for (const rating of cat3) {
-        if (rating) {
-          cat3Rating++;
-        }
-      }
-      return [cat1Rating, cat2Rating, cat3Rating];
+      return [buttonBar1, buttonBar2, buttonBar3];
     }
 
     const handleCreateRating = async (outfitId) => {
@@ -81,21 +48,9 @@ const Rate = () => {
         rating: {category_1: rating1, category_2: rating2, category_3: rating3},
       })
       setS(s+1)
-      setStyleOneClicked(false)
-      setStyleTwoClicked(false)
-      setStyleThreeClicked(false)
-      setStyleFourClicked(false)
-      setStyleFiveClicked(false)
-      setCreativityOneClicked(false)
-      setCreativityTwoClicked(false)
-      setCreativityThreeClicked(false)
-      setCreativityFourClicked(false)
-      setCreativityFiveClicked(false)
-      setSuitabilityOneClicked(false)
-      setSuitabilityTwoClicked(false)
-      setSuitabilityThreeClicked(false)
-      setSuitabilityFourClicked(false)
-      setSuitabilityFiveClicked(false)
+      setButtonBar1()
+      setButtonBar2()
+      setButtonBar3()
     }
 
 
@@ -136,14 +91,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setStyleOneClicked(true);
-                                setStyleTwoClicked(false);
-                                setStyleThreeClicked(false);
-                                setStyleFourClicked(false);
-                                setStyleFiveClicked(false);
+                                setButtonBar1(1);
                               }}
                               className={
-                                styleOneClicked
+                                buttonBar1 >= 1
                                   ? "style-score-button style-clicked"
                                   : "style-score-button"
                               }
@@ -154,14 +105,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setStyleOneClicked(true);
-                                setStyleTwoClicked(true);
-                                setStyleThreeClicked(false);
-                                setStyleFourClicked(false);
-                                setStyleFiveClicked(false);
+                                setButtonBar1(2);
                               }}
                               className={
-                                styleTwoClicked
+                                buttonBar1 >= 2
                                   ? "style-score-button style-clicked"
                                   : "style-score-button"
                               }
@@ -172,14 +119,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setStyleOneClicked(true);
-                                setStyleTwoClicked(true);
-                                setStyleThreeClicked(true);
-                                setStyleFourClicked(false);
-                                setStyleFiveClicked(false);
+                                setButtonBar1(3);
                               }}
                               className={
-                                styleThreeClicked
+                                buttonBar1 >= 3
                                   ? "style-score-button style-clicked"
                                   : "style-score-button"
                               }
@@ -190,14 +133,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setStyleOneClicked(true);
-                                setStyleTwoClicked(true);
-                                setStyleThreeClicked(true);
-                                setStyleFourClicked(true);
-                                setStyleFiveClicked(false);
+                                setButtonBar1(4);
                               }}
                               className={
-                                styleFourClicked
+                                buttonBar1 >= 4
                                   ? "style-score-button style-clicked"
                                   : "style-score-button"
                               }
@@ -208,14 +147,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setStyleOneClicked(true);
-                                setStyleTwoClicked(true);
-                                setStyleThreeClicked(true);
-                                setStyleFourClicked(true);
-                                setStyleFiveClicked(true);
+                                setButtonBar1(5);
                               }}
                               className={
-                                styleFiveClicked
+                                buttonBar1 >= 5
                                   ? "style-score-button style-clicked"
                                   : "style-score-button"
                               }
@@ -230,14 +165,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setCreativityOneClicked(true);
-                                setCreativityTwoClicked(false);
-                                setCreativityThreeClicked(false);
-                                setCreativityFourClicked(false);
-                                setCreativityFiveClicked(false);
+                                setButtonBar2(1)
                               }}
                               className={
-                                creativityOneClicked
+                                buttonBar2 >= 1
                                   ? "creativity-score-button creativity-clicked"
                                   : "creativity-score-button"
                               }
@@ -248,14 +179,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setCreativityOneClicked(true);
-                                setCreativityTwoClicked(true);
-                                setCreativityThreeClicked(false);
-                                setCreativityFourClicked(false);
-                                setCreativityFiveClicked(false);
+                               setButtonBar2(2)
                               }}
                               className={
-                                creativityTwoClicked
+                                buttonBar2 >= 2
                                   ? "creativity-score-button creativity-clicked"
                                   : "creativity-score-button"
                               }
@@ -266,14 +193,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setCreativityOneClicked(true);
-                                setCreativityTwoClicked(true);
-                                setCreativityThreeClicked(true);
-                                setCreativityFourClicked(false);
-                                setCreativityFiveClicked(false);
+                                setButtonBar2(3)
                               }}
                               className={
-                                creativityThreeClicked
+                                buttonBar2 >= 3
                                   ? "creativity-score-button creativity-clicked"
                                   : "creativity-score-button"
                               }
@@ -284,14 +207,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setCreativityOneClicked(true);
-                                setCreativityTwoClicked(true);
-                                setCreativityThreeClicked(true);
-                                setCreativityFourClicked(true);
-                                setCreativityFiveClicked(false);
+                                setButtonBar2(4)
                               }}
                               className={
-                                creativityFourClicked
+                                buttonBar2 >= 4
                                   ? "creativity-score-button creativity-clicked"
                                   : "creativity-score-button"
                               }
@@ -302,14 +221,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setCreativityOneClicked(true);
-                                setCreativityTwoClicked(true);
-                                setCreativityThreeClicked(true);
-                                setCreativityFourClicked(true);
-                                setCreativityFiveClicked(true);
+                                setButtonBar2(5)
                               }}
                               className={
-                                creativityFiveClicked
+                                buttonBar2 >= 5
                                   ? "creativity-score-button creativity-clicked"
                                   : "creativity-score-button"
                               }
@@ -324,14 +239,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setSuitabilityOneClicked(true);
-                                setSuitabilityTwoClicked(false);
-                                setSuitabilityThreeClicked(false);
-                                setSuitabilityFourClicked(false);
-                                setSuitabilityFiveClicked(false);
+                                setButtonBar3(1)
                               }}
                               className={
-                                suitabilityOneClicked
+                                buttonBar3 >= 1
                                   ? "suitability-score-button suitability-clicked"
                                   : "suitability-score-button"
                               }
@@ -342,14 +253,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setSuitabilityOneClicked(true);
-                                setSuitabilityTwoClicked(true);
-                                setSuitabilityThreeClicked(false);
-                                setSuitabilityFourClicked(false);
-                                setSuitabilityFiveClicked(false);
+                                setButtonBar3(2)
                               }}
                               className={
-                                suitabilityTwoClicked
+                                buttonBar3 >= 2
                                   ? "suitability-score-button suitability-clicked"
                                   : "suitability-score-button"
                               }
@@ -360,14 +267,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setSuitabilityOneClicked(true);
-                                setSuitabilityTwoClicked(true);
-                                setSuitabilityThreeClicked(true);
-                                setSuitabilityFourClicked(false);
-                                setSuitabilityFiveClicked(false);
+                                setButtonBar3(3)
                               }}
                               className={
-                                suitabilityThreeClicked
+                                buttonBar3 >= 3
                                   ? "suitability-score-button suitability-clicked"
                                   : "suitability-score-button"
                               }
@@ -378,14 +281,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setSuitabilityOneClicked(true);
-                                setSuitabilityTwoClicked(true);
-                                setSuitabilityThreeClicked(true);
-                                setSuitabilityFourClicked(true);
-                                setSuitabilityFiveClicked(false);
+                                setButtonBar3(4)
                               }}
                               className={
-                                suitabilityFourClicked
+                                buttonBar3 >= 4
                                   ? "suitability-score-button suitability-clicked"
                                   : "suitability-score-button"
                               }
@@ -396,14 +295,10 @@ const Rate = () => {
                           <div className="score">
                             <button
                               onClick={() => {
-                                setSuitabilityOneClicked(true);
-                                setSuitabilityTwoClicked(true);
-                                setSuitabilityThreeClicked(true);
-                                setSuitabilityFourClicked(true);
-                                setSuitabilityFiveClicked(true);
+                                setButtonBar3(5)
                               }}
                               className={
-                                suitabilityFiveClicked
+                                buttonBar3 >= 5
                                   ? "suitability-score-button suitability-clicked"
                                   : "suitability-score-button"
                               }
@@ -422,7 +317,7 @@ const Rate = () => {
                       </div>
                     </div>
                   ))
-                  .slice(s, s+1)
+                  .slice(s, s + 1)
               : ""}
           </div>
         </section>
