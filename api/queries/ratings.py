@@ -90,9 +90,8 @@ class RatingRepo:
                     db.execute(
                         """
                         SELECT id, category_1, category_2, category_3, outfit_id, account_id
+                        FROM ratings
                         WHERE (outfit_id = %s)
-                        FROM outfits
-                        ORDER BY outfits.id
                         """,
                         [fit_id]
                     )
@@ -111,7 +110,7 @@ class RatingRepo:
                     return results
 
         except Exception as e:
-            print(e)
+            print("eeeeeeeeeeeeeeee", e)
         return {"message" : "Could not get ratings"}
 
     def get_avg_rating(
@@ -119,21 +118,24 @@ class RatingRepo:
             fit_id: int
     ) -> float:
         results = self.get_ratings(fit_id)
+        print("aaaaaaaaaaaaaaaaaaaaa", results)
         total = 0
         for rating in results:
             total += rating.category_1 + rating.category_2 + rating.category_3
+        print("BBBBBBBBBBBBBB", total)
         return  total/(len(results) * 3) if len(results) > 0 else 0
-    def update_outfit_average_rating(self, outfit_id: int, average_rating:float):
+    def update_outfit_average_rating(self, outfit_id: int, avg_rating:float):
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
                     db.execute("""
                         UPDATE outfits
-                        SET average_rating=%s
+                        SET avg_rating=%s
                         WHERE (outfit_id=%s)
                         """,
-                        [average_rating, outfit_id]
+                        [avg_rating, outfit_id]
                     )
+                    print("AVERAGE RATING:", avg_rating)
         except Exception:
             return Exception
 

@@ -28,4 +28,7 @@
 04/17/23 | We finished up the functionality for the create an outfit page, as well as started on the list outfits page. To finish the latter, we need to filter the outfits by only the ones created by the current user. We should be able to finish that by tomorrow.
 
 
-04/17/23 | We finished adding the filter to the list outfits page to only show the current user's outfits. We mostly finished up the rating page, and just need to add a filter that only shows outfits that do not belong to the user. We will finish that tomorrow along with the functionality to show the user's top 3 outfits on the dashboard.
+04/18/23 | We finished adding the filter to the list outfits page to only show the current user's outfits. We mostly finished up the rating page, and just need to add a filter that only shows outfits that do not belong to the user. We will finish that tomorrow along with the functionality to show the user's top 3 outfits on the dashboard.
+
+
+04/19/23 | Today we added the functionality to only show other users when rating outfits. We also refactored the code for rating an outfit to make it more streamlined. 

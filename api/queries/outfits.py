@@ -64,7 +64,7 @@ class OutfitRepo:
                         else:
                             if record[6] is not None:
                                 results_dict[record[0]].ratings.append(RatingOut(
-                                    id = record[5],
+                                    id = record[6],
                                     category_1 = record[7],
                                     category_2 = record[8],
                                     category_3 = record[9],
