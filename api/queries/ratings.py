@@ -45,9 +45,9 @@ class RatingRepo:
             outfit_id: int
             ) -> RatingOut:
         if (
-            rating.category_1 % .5 != 0 or rating.category_1 < 0 or rating.category_1 > 5
-            or rating.category_2 % .5 != 0 or rating.category_2 < 0 or rating.category_2 > 5
-            or rating.category_3 % .5 != 0 or rating.category_3 < 0 or rating.category_3 > 5
+            rating.category_1 % 1 != 0 or rating.category_1 < 1 or rating.category_1 > 5
+            or rating.category_2 % 1 != 0 or rating.category_2 < 1 or rating.category_2 > 5
+            or rating.category_3 % 1 != 0 or rating.category_3 < 1 or rating.category_3 > 5
         ): ### no bad data no 500s would use for loop if more than 3 ratings
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
@@ -76,5 +76,106 @@ class RatingRepo:
                     outfit_id=db_rating[4],
                     account_id=db_rating[5]
                     )
+                
 
                 return rating_out
+
+    def get_ratings(
+            self,
+            fit_id: int
+    ) -> List[RatingOut]:
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute(
+                        """
+                        SELECT id, category_1, category_2, category_3, outfit_id, account_id
+                        WHERE (outfit_id = %s)
+                        FROM outfits
+                        ORDER BY outfits.id
+                        """,
+                        [fit_id]
+                    )
+                    results = []
+                    for record in db.fetchall():
+                        results.append(
+                            RatingOut(
+                            id = record[0],
+                            category_1 = record[1],
+                            category_2 = record[2],
+                            category_3 = record[3],
+                            outfit_id = record[4],
+                            account_id = record[5]
+                            )
+                        )
+                    return results
+
+        except Exception as e:
+            print(e)
+        return {"message" : "Could not get ratings"}
+
+    def get_avg_rating(
+            self,
+            fit_id: int
+    ) -> float:
+        results = self.get_ratings(fit_id)
+        total = 0
+        for rating in results:
+            total += rating.category_1 + rating.category_2 + rating.category_3
+        return  total/(len(results) * 3) if len(results) > 0 else 0
+
+
+
+    # def list_outfits(
+    #         self
+    # ) -> AllOutfits: #queries: OutfitQueries = Depends()
+    #     try:
+    #         with pool.connection() as conn:
+    #             with conn.cursor() as db:
+    #                 db.execute(
+    #                     """
+    #                     SELECT outfits.id, img_url, style, occasion, outfits.account_id, outfits.avg_rating, ratings.id, ratings.category_1, ratings.category_2, ratings.category_3, ratings.account_id, ratings.outfit_id
+    #                     FROM outfits
+    #                     LEFT JOIN ratings ON outfits.id = ratings.outfit_id
+    #                     ORDER BY outfits.id
+    #                     """
+    #                 )
+    #                 results = []
+    #                 results_dict = {}
+    #                 for record in db.fetchall():
+    #                     if record[0] not in results_dict:
+    #                         results_dict[record[0]] = OutfitOut(
+    #                         id = record[0],
+    #                         img_url = record[1],
+    #                         style = record[2],
+    #                         occasion = record[3],
+    #                         account_id = record[4],
+    #                         ratings = [],
+    #                         avg_rating = record[5]
+    #                         )
+    #                         if record[6] is not None:
+    #                             results_dict[record[0]].ratings.append(RatingOut(
+    #                                 id = record[6],
+    #                                 category_1 = record[7],
+    #                                 category_2 = record[8],
+    #                                 category_3 = record[9],
+    #                                 account_id = record[10],
+    #                                 outfit_id = record[11]
+    #                             ))
+    #                     else:
+    #                         if record[6] is not None:
+    #                             results_dict[record[0]].ratings.append(RatingOut(
+    #                                 id = record[5],
+    #                                 category_1 = record[7],
+    #                                 category_2 = record[8],
+    #                                 category_3 = record[9],
+    #                                 account_id = record[10],
+    #                                 outfit_id = record[11]
+    #                             ))
+
+    #                 for value in results_dict.values():
+    #                     results.append(value)
+    #                 return {"outfits": results}
+    #     except Exception as e:
+    #         print(e)
+    #     return {"message" : "could not get all outfits"}

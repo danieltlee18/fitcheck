@@ -8,24 +8,6 @@ import { useCreateRatingMutation } from '../services/rating'
 import { useGetAccountQuery } from '../services/auth'
 
 const Rate = () => {
-    // const [styleOneClicked, setStyleOneClicked] = useState(false)
-    // const [styleTwoClicked, setStyleTwoClicked] = useState(false);
-    // const [styleThreeClicked, setStyleThreeClicked] = useState(false);
-    // const [styleFourClicked, setStyleFourClicked] = useState(false);
-    // const [styleFiveClicked, setStyleFiveClicked] = useState(false);
-
-    // const [creativityOneClicked, setCreativityOneClicked] = useState(false);
-    // const [creativityTwoClicked, setCreativityTwoClicked] = useState(false);
-    // const [creativityThreeClicked, setCreativityThreeClicked] = useState(false);
-    // const [creativityFourClicked, setCreativityFourClicked] = useState(false);
-    // const [creativityFiveClicked, setCreativityFiveClicked] = useState(false);
-
-    // const [suitabilityOneClicked, setSuitabilityOneClicked] = useState(false);
-    // const [suitabilityTwoClicked, setSuitabilityTwoClicked] = useState(false);
-    // const [suitabilityThreeClicked, setSuitabilityThreeClicked] = useState(false);
-    // const [suitabilityFourClicked, setSuitabilityFourClicked] = useState(false);
-    // const [suitabilityFiveClicked, setSuitabilityFiveClicked] = useState(false);
-
     const [buttonBar1, setButtonBar1] = useState()
     const [buttonBar2, setButtonBar2] = useState()
     const [buttonBar3, setButtonBar3] = useState()
