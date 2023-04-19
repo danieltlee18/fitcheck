@@ -18,6 +18,7 @@ class OutfitOut(BaseModel):
     id: int
     account_id: int
     ratings: List[RatingOut]
+    avg_rating: float
 
 class AllOutfits(BaseModel):
     outfits : List[OutfitOut]
@@ -32,7 +33,7 @@ class OutfitRepo:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT outfits.id, img_url, style, occasion, outfits.account_id, ratings.id, ratings.category_1, ratings.category_2, ratings.category_3, ratings.account_id, ratings.outfit_id
+                        SELECT outfits.id, img_url, style, occasion, outfits.account_id, outfits.avg_rating, ratings.id, ratings.category_1, ratings.category_2, ratings.category_3, ratings.account_id, ratings.outfit_id
                         FROM outfits
                         LEFT JOIN ratings ON outfits.id = ratings.outfit_id
                         ORDER BY outfits.id
@@ -48,26 +49,27 @@ class OutfitRepo:
                             style = record[2],
                             occasion = record[3],
                             account_id = record[4],
-                            ratings = []
+                            ratings = [],
+                            avg_rating = record[5]
                             )
-                            if record[5] is not None:
+                            if record[6] is not None:
                                 results_dict[record[0]].ratings.append(RatingOut(
-                                    id = record[5],
-                                    category_1 = record[6],
-                                    category_2 = record[7],
-                                    category_3 = record[8],
-                                    account_id = record[9],
-                                    outfit_id = record[10]
+                                    id = record[6],
+                                    category_1 = record[7],
+                                    category_2 = record[8],
+                                    category_3 = record[9],
+                                    account_id = record[10],
+                                    outfit_id = record[11]
                                 ))
                         else:
-                            if record[5] is not None:
+                            if record[6] is not None:
                                 results_dict[record[0]].ratings.append(RatingOut(
                                     id = record[5],
-                                    category_1 = record[6],
-                                    category_2 = record[7],
-                                    category_3 = record[8],
-                                    account_id = record[9],
-                                    outfit_id = record[10]
+                                    category_1 = record[7],
+                                    category_2 = record[8],
+                                    category_3 = record[9],
+                                    account_id = record[10],
+                                    outfit_id = record[11]
                                 ))
 
                     for value in results_dict.values():
@@ -97,7 +99,7 @@ class OutfitRepo:
                 )
                 id = result.fetchone()[0]
                 old_data = outfit.dict()
-                return {"id":id, "ratings": [], **old_data, "account_id":account_id}####FixToIncludeRatings
+                return {"id":id, "ratings": [], **old_data, "account_id":account_id, "avg_rating": 0}####FixToIncludeRatings
     # raise HTTPException(
     #         status_code=status.HTTP_401_UNAUTHORIZED,
     #         detail="User is not currently logged in",

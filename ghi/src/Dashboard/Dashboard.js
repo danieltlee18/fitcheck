@@ -1,5 +1,7 @@
 import "./Dashboard.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useListOutfitQuery } from "../services/outfit";
+import { useGetAccountQuery } from "../services/auth";
 import Navbar from '../NavBar/Navbar.js'
 import Footer from '../Footer/Footer.js'
 import KUTE from "kute.js";
@@ -10,22 +12,68 @@ import cardBg from "./images/low-poly-grid-haikei.png";
 import silho from "./images/silhouette-fitcheck.png"
 
 const Dashboard = () => {
-  useEffect(() => {
-    const tween = KUTE.fromTo(
-      "#blob1_right",
-      { path: "#blob1_right", visibility: "hidden" },
-      { path: "#blob2_right", visibility: "hidden" },
-      { repeat: 999, duration: 1500, yoyo: true }
-    );
-    const tween2 = KUTE.fromTo(
-        "#blob1_left",
-        { path: "#blob1_left", visibility: "hidden" },
-        { path: "#blob2_left", visibility: "hidden" },
-        { repeat: 999, duration: 1500, yoyo: true }
-    );
-    tween.start()
-    tween2.start()
-  }, []);
+  // useEffect(() => {
+  //   const tween = KUTE.fromTo(
+  //     "#blob1_right",
+  //     { path: "#blob1_right", visibility: "hidden" },
+  //     { path: "#blob2_right", visibility: "hidden" },
+  //     { repeat: 999, duration: 1500, yoyo: true }
+  //   );
+  //   const tween2 = KUTE.fromTo(
+  //       "#blob1_left",
+  //       { path: "#blob1_left", visibility: "hidden" },
+  //       { path: "#blob2_left", visibility: "hidden" },
+  //       { repeat: 999, duration: 1500, yoyo: true }
+  //   );
+  //   tween.start()
+  //   tween2.start()
+  // }, []);
+
+  const { data: outfits, isLoading } = useListOutfitQuery();
+  const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
+  console.log(outfits);
+
+  const listAvgRatings = () => {
+    let results = []
+
+    if (!isLoading){
+      for (let outfit of outfits){
+        results.push([outfit, averageRatings(outfit)])
+      }
+      console.log(results)
+    }
+    return results
+    }
+
+  const averageRatings = (outfit) => {
+    if (outfit.ratings.length == 0) {
+      return 0;
+    }
+    let first = 0;
+    let second = 0;
+    let third = 0;
+    for (let rating of outfit.ratings) {
+      first += rating.category_1;
+      second += rating.category_2;
+      third += rating.category_3;
+    }
+    result =
+      (first / outfit.ratings.length +
+        second / outfit.ratings.length +
+        third / outfit.ratings.length) /
+      3;
+      console.log(result)
+
+    return [
+      ((first / outfit.ratings.length) +
+      (second / outfit.ratings.length) +
+      (third / outfit.ratings.length))/3
+    ];
+  };
+
+  if (isLoading || isUserLoading){
+    return <div>loading</div>
+  }
 
   return (
     <>
@@ -35,58 +83,30 @@ const Dashboard = () => {
       <div className="menu-wrapper">
         <div className="menu">
           <div className="left">
-            <h1>Top Outfits</h1>
-            <div className="outfit-summary">
-              <div className="img-box">
-                <img src={tom3} />
-              </div>
-              <div className="ratings">
-                <div className="rating">
-                  <p>STYLE</p>
-                  <div className="percentage"></div>
+            <h1>My Top Outfits</h1>
+            {outfits.filter((outfit) => outfit.account_id == user.id).map((outfit) => {
+              return(
+              <div key={outfit.id} className="outfit-summary">
+                <div className="img-box">
+                  <img src={outfit.img_url} />
                 </div>
-                <div className="rating">
-                  <p>CREATIVITY</p>
-                  <div className="percentage2"></div>
-                </div>
-                <div className="rating">
-                  <p>SUITABILITY</p>
-                  <div className="percentage3"></div>
-                </div>
-              </div>
-            </div>
-            <div className="outfit-summary">
-              <div className="img-box">
-                <img src={tom2} />
-              </div>
-              <div className="ratings">
-                <div className="rating">
-                  <div className="percentage"></div>
-                </div>
-                <div className="rating">
-                  <div className="percentage2"></div>
-                </div>
-                <div className="rating">
-                  <div className="percentage3"></div>
+                <div className="ratings">
+                  <div className="rating">
+                    <p>STYLE</p>
+                    <div className="percentage"></div>
+                  </div>
+                  <div className="rating">
+                    <p>CREATIVITY</p>
+                    <div className="percentage2"></div>
+                  </div>
+                  <div className="rating">
+                    <p>SUITABILITY</p>
+                    <div className="percentage3"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="outfit-summary">
-              <div className="img-box">
-                <img src={tom1} />
-              </div>
-              <div className="ratings">
-                <div className="rating">
-                  <div className="percentage"></div>
-                </div>
-                <div className="rating">
-                  <div className="percentage2"></div>
-                </div>
-                <div className="rating">
-                  <div className="percentage3"></div>
-                </div>
-              </div>
-            </div>
+            )}).slice(0,3)
+            }
           </div>
           <div className="right">
             <div className="card">
