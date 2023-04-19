@@ -19,12 +19,15 @@ const CreateOutfit = () => {
   const { errorMessage, fields } = useSelector((state) => state.outfit);
   const [img, setImg] = useState()
   const [createOutfit] = useCreateOutfitMutation();
+
+
   const handleSubmit = async (e) => {
     const result = await createOutfit({
       img_url: fields.img_url,
       style: fields.style,
       occasion: fields.occasion,
     })
+    console.log(result)
   }
   return (
     <>
