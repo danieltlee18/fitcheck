@@ -76,8 +76,8 @@ class RatingRepo:
                     outfit_id=db_rating[4],
                     account_id=db_rating[5]
                     )
-                
-
+                avg = self.get_avg_rating(rating_out.outfit_id)
+                self.update_outfit_average_rating(rating_out.outfit_id, avg)
                 return rating_out
 
     def get_ratings(
@@ -123,7 +123,19 @@ class RatingRepo:
         for rating in results:
             total += rating.category_1 + rating.category_2 + rating.category_3
         return  total/(len(results) * 3) if len(results) > 0 else 0
-
+    def update_outfit_average_rating(self, outfit_id: int, average_rating:float):
+        try:
+            with pool.connection() as conn:
+                with conn.cursor() as db:
+                    db.execute("""
+                        UPDATE outfits
+                        SET average_rating=%s
+                        WHERE (outfit_id=%s)
+                        """,
+                        [average_rating, outfit_id]
+                    )
+        except Exception:
+            return Exception
 
 
     # def list_outfits(

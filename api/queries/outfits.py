@@ -99,7 +99,7 @@ class OutfitRepo:
                 )
                 id = result.fetchone()[0]
                 old_data = outfit.dict()
-                return {"id":id, "ratings": [], **old_data, "account_id":account_id}####FixToIncludeRatings
+                return {"id":id, "ratings": [], **old_data, "account_id":account_id, "avg_rating": 0}####FixToIncludeRatings
     # raise HTTPException(
     #         status_code=status.HTTP_401_UNAUTHORIZED,
     #         detail="User is not currently logged in",
