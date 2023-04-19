@@ -1,10 +1,9 @@
 import './Rate.css'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Navbar from '../NavBar/Navbar.js'
 import Footer from "../Footer/Footer.js"
 import samplePic from '../images/sampleRate.jpeg'
 import { useListOutfitQuery } from "../services/outfit"
-import { useDispatch, useSelector } from 'react-redux'
 import { useCreateRatingMutation } from '../services/rating'
 import { useGetAccountQuery } from '../services/auth'
 
@@ -30,6 +29,7 @@ const Rate = () => {
     const { data: outfits, isLoading } = useListOutfitQuery();
     const [createRating] = useCreateRatingMutation();
     const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
+    const [s, setS] = useState(0)
 
 
     const getCategoryRatings = () => {
@@ -80,10 +80,29 @@ const Rate = () => {
         "outfit_id": outfitId,
         rating: {category_1: rating1, category_2: rating2, category_3: rating3},
       })
-      window.location.reload();
+      setS(s+1)
+      setStyleOneClicked(false)
+      setStyleTwoClicked(false)
+      setStyleThreeClicked(false)
+      setStyleFourClicked(false)
+      setStyleFiveClicked(false)
+      setCreativityOneClicked(false)
+      setCreativityTwoClicked(false)
+      setCreativityThreeClicked(false)
+      setCreativityFourClicked(false)
+      setCreativityFiveClicked(false)
+      setSuitabilityOneClicked(false)
+      setSuitabilityTwoClicked(false)
+      setSuitabilityThreeClicked(false)
+      setSuitabilityFourClicked(false)
+      setSuitabilityFiveClicked(false)
     }
 
+
     const filterRatedOutfits = (outfit) => {
+      if (outfit.account_id === user.id){
+        return false
+      }
       for (const rating of outfit.ratings) {
         if (rating.account_id === user.id) {
           return false;
@@ -91,6 +110,9 @@ const Rate = () => {
       }
       return true;
     }
+    useEffect(() => {
+
+    }, [s])
 
     return (
       <>
@@ -400,7 +422,7 @@ const Rate = () => {
                       </div>
                     </div>
                   ))
-                  .slice(0, 1)
+                  .slice(s, s+1)
               : ""}
           </div>
         </section>
