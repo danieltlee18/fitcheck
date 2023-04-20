@@ -19,3 +19,7 @@
 4/17 - Created a functional "create outfits" page that will take in the inputs of a user on the form and push that information to the back-end where their outfit will be created. Also started working on creating a list outfits page that will also show user's outfits along with the associated ratings
 
 4/18 - Started working on the rating functionality  of our front-end. Ran into some problems which required us to go back and edit/create some functions in our back-end so that a user clicking a rating from a bar will track the associated rating to the outfit
+
+4/19 - Refactored some code, finished up creating the rating functionality as well as being able to show a new outfit after succesfully rating an outfit
+
+4/20 - Fixed up all the back-end integrated functionality and everything is working for mvp, now just need to polish up front-end/css to make the website functionally attractice
