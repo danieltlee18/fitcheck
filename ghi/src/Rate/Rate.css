@@ -159,3 +159,32 @@
     max-width: 30ch;
     max-height: 11ch;
 }
+
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #4c525c #282b30;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 20px;
+    position: absolute;
+    max-height: 90%;
+    height: 90%;
+
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #282b3000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #4c525c;
+    border-radius: 10px;
+    border: 0px none #ff0000;
+  }

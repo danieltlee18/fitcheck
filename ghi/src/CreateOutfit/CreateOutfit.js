@@ -36,7 +36,7 @@ const CreateOutfit = () => {
       </div>
       <section className="rate-wrapper">
         <div className="center-piece-frame">
-          <div className="outfit-center-piece">
+          <div className="outfit-center-piece-create">
             <div className="left-side">
               <div className="left-side-bg">
                 <img
