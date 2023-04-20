@@ -43,7 +43,8 @@
     overflow: hidden;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
+    overflow: auto;
 }
 .left-side{
     overflow: hidden;
