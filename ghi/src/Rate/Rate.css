@@ -31,7 +31,11 @@
     border-right: 1vw solid white;
     object-fit: cover;
     max-width: 27vw;
+    min-width: none;
     overflow: scroll;
+}
+.outfit>img{
+    max-width: 27vw;
 }
 .aspects{
     display: flex;
@@ -42,8 +46,9 @@
 }
 .aspect{
     float: left;
+    justify-content: center;
     width: 100%;
-    margin-left: 5vw;
+    margin-left: 7vw;
 }
 .rating-bar{
     width: 80%;
@@ -138,4 +143,19 @@
 }
 .submit-rating:hover{
     background-color: blue;
+}
+.style-occasion{
+    margin-bottom: 50px;
+    justify-content: center;
+
+}
+
+.style-occasion>h3{
+    text-align: center;
+}
+.style-occasion>h6{
+    overflow-wrap:break-word;
+    overflow-x: hidden;
+    max-width: 30ch;
+    max-height: 11ch;
 }
