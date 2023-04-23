@@ -39,12 +39,26 @@ const CreateOutfit = () => {
           <div className="outfit-center-piece-create">
             <div className="left-side">
               <div className="left-side-bg">
-                <img
-                  src={fields.img_url ? fields.img_url : pHBG}
-                  className="left-side-purple"
-                  alt="Card Background"
-                />
-                {/* <img src={phP} className="left-side-people" alt="Silhouettes" /> */}
+                {fields.img_url ? (
+                  <img
+                    src={fields.img_url}
+                    className="left-side-purple"
+                    alt="Card Background"
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={pHBG}
+                      className="left-side-purple"
+                      alt="Card Background"
+                    />
+                    <img
+                      src={phP}
+                      className="left-side-people"
+                      alt="Silhouettes"
+                    />
+                  </>
+                )}
               </div>
             </div>
 
@@ -86,9 +100,7 @@ const CreateOutfit = () => {
                       dispatch(handleStyleChange(e.target.value))
                     }
                   >
-                    <option value="">
-                      Select a Category
-                    </option>
+                    <option value="">Select a Category</option>
                     <option value="Casual">Casual</option>
                     <option value="Formal">Formal</option>
                     <option value="Sexy">Sexy</option>

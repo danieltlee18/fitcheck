@@ -52,277 +52,276 @@ const Rate = () => {
     }, [s])
 
     return (
-        <>
-            <div className="navbar">
-                <Navbar />
-            </div>
-            <section className="rate-wrapper">
-                <div className="center-piece-frame">
-                    {!isLoading && !isUserLoading
-                        ? outfits
-                              .filter((rating) => filterRatedOutfits(rating))
-                              .map((outfit) => (
-                                  <div key={outfit.id} className="center-piece">
-                                      <div className="outfit">
-                                          <img
-                                              src={outfit.img_url}
-                                              alt="sample"
-                                          />
-                                      </div>
-                                      <div className="aspects">
-                                          <div className="style-occasion">
-                                              <h3>{outfit.style}</h3>
-                                              <h6>
-                                                  Occasion: {outfit.occasion}
-                                              </h6>
-                                          </div>
-                                          <div className="aspect">
-                                              {subCategories(outfit)[0]}
-                                          </div>
-                                          <div className="rating-bar">
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar1(1);
-                                                      }}
-                                                      className={
-                                                          buttonBar1 >= 1
-                                                              ? "style-score-button style-clicked"
-                                                              : "style-score-button"
-                                                      }
-                                                  >
-                                                      1
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar1(2);
-                                                      }}
-                                                      className={
-                                                          buttonBar1 >= 2
-                                                              ? "style-score-button style-clicked"
-                                                              : "style-score-button"
-                                                      }
-                                                  >
-                                                      2
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar1(3);
-                                                      }}
-                                                      className={
-                                                          buttonBar1 >= 3
-                                                              ? "style-score-button style-clicked"
-                                                              : "style-score-button"
-                                                      }
-                                                  >
-                                                      3
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar1(4);
-                                                      }}
-                                                      className={
-                                                          buttonBar1 >= 4
-                                                              ? "style-score-button style-clicked"
-                                                              : "style-score-button"
-                                                      }
-                                                  >
-                                                      4
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar1(5);
-                                                      }}
-                                                      className={
-                                                          buttonBar1 >= 5
-                                                              ? "style-score-button style-clicked"
-                                                              : "style-score-button"
-                                                      }
-                                                  >
-                                                      5
-                                                  </button>
-                                              </div>
-                                          </div>
+      <>
+        <div className="navbar">
+          <Navbar />
+        </div>
+        <section className="rate-wrapper">
+          <div className="center-piece-frame">
+            {!isLoading && !isUserLoading
+              ? outfits
+                  .filter((rating) => filterRatedOutfits(rating))
+                  .map((outfit) => (
+                    <div key={outfit.id} className="center-piece">
+                      <div className="outfit">
+                        <img
+                          className="img-blur-bg"
+                          src={outfit.img_url}
+                          alt="sample"
+                        />
+                        <img src={outfit.img_url} alt="sample" />
+                      </div>
+                      <div className="aspects">
+                        <div className="style-occasion">
+                          <h3>{outfit.style}</h3>
+                          <h6>Occasion: {outfit.occasion}</h6>
+                        </div>
+                        <div className="aspect">
+                          {subCategories(outfit)[0]}
 
-                                          <div className="aspect">
-                                              {subCategories(outfit)[1]}
-                                          </div>
-                                          <div className="rating-bar">
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar2(1);
-                                                      }}
-                                                      className={
-                                                          buttonBar2 >= 1
-                                                              ? "creativity-score-button creativity-clicked"
-                                                              : "creativity-score-button"
-                                                      }
-                                                  >
-                                                      1
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar2(2);
-                                                      }}
-                                                      className={
-                                                          buttonBar2 >= 2
-                                                              ? "creativity-score-button creativity-clicked"
-                                                              : "creativity-score-button"
-                                                      }
-                                                  >
-                                                      2
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar2(3);
-                                                      }}
-                                                      className={
-                                                          buttonBar2 >= 3
-                                                              ? "creativity-score-button creativity-clicked"
-                                                              : "creativity-score-button"
-                                                      }
-                                                  >
-                                                      3
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar2(4);
-                                                      }}
-                                                      className={
-                                                          buttonBar2 >= 4
-                                                              ? "creativity-score-button creativity-clicked"
-                                                              : "creativity-score-button"
-                                                      }
-                                                  >
-                                                      4
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar2(5);
-                                                      }}
-                                                      className={
-                                                          buttonBar2 >= 5
-                                                              ? "creativity-score-button creativity-clicked"
-                                                              : "creativity-score-button"
-                                                      }
-                                                  >
-                                                      5
-                                                  </button>
-                                              </div>
-                                          </div>
+                          <div className="rating-bar">
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar1(1);
+                                }}
+                                className={
+                                  buttonBar1 >= 1
+                                    ? "style-score-button style-clicked"
+                                    : "style-score-button"
+                                }
+                              >
+                                1
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar1(2);
+                                }}
+                                className={
+                                  buttonBar1 >= 2
+                                    ? "style-score-button style-clicked"
+                                    : "style-score-button"
+                                }
+                              >
+                                2
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar1(3);
+                                }}
+                                className={
+                                  buttonBar1 >= 3
+                                    ? "style-score-button style-clicked"
+                                    : "style-score-button"
+                                }
+                              >
+                                3
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar1(4);
+                                }}
+                                className={
+                                  buttonBar1 >= 4
+                                    ? "style-score-button style-clicked"
+                                    : "style-score-button"
+                                }
+                              >
+                                4
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar1(5);
+                                }}
+                                className={
+                                  buttonBar1 >= 5
+                                    ? "style-score-button style-clicked"
+                                    : "style-score-button"
+                                }
+                              >
+                                5
+                              </button>
+                            </div>
+                          </div>
+                        </div>
 
-                                          <div className="aspect">
-                                              {subCategories(outfit)[2]}
-                                          </div>
-                                          <div className="rating-bar">
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar3(1);
-                                                      }}
-                                                      className={
-                                                          buttonBar3 >= 1
-                                                              ? "suitability-score-button suitability-clicked"
-                                                              : "suitability-score-button"
-                                                      }
-                                                  >
-                                                      1
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar3(2);
-                                                      }}
-                                                      className={
-                                                          buttonBar3 >= 2
-                                                              ? "suitability-score-button suitability-clicked"
-                                                              : "suitability-score-button"
-                                                      }
-                                                  >
-                                                      2
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar3(3);
-                                                      }}
-                                                      className={
-                                                          buttonBar3 >= 3
-                                                              ? "suitability-score-button suitability-clicked"
-                                                              : "suitability-score-button"
-                                                      }
-                                                  >
-                                                      3
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar3(4);
-                                                      }}
-                                                      className={
-                                                          buttonBar3 >= 4
-                                                              ? "suitability-score-button suitability-clicked"
-                                                              : "suitability-score-button"
-                                                      }
-                                                  >
-                                                      4
-                                                  </button>
-                                              </div>
-                                              <div className="score">
-                                                  <button
-                                                      onClick={() => {
-                                                          setButtonBar3(5);
-                                                      }}
-                                                      className={
-                                                          buttonBar3 >= 5
-                                                              ? "suitability-score-button suitability-clicked"
-                                                              : "suitability-score-button"
-                                                      }
-                                                  >
-                                                      5
-                                                  </button>
-                                              </div>
-                                          </div>
+                        <div className="aspect">
+                          {subCategories(outfit)[1]}
+                          <div className="rating-bar">
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar2(1);
+                                }}
+                                className={
+                                  buttonBar2 >= 1
+                                    ? "creativity-score-button creativity-clicked"
+                                    : "creativity-score-button"
+                                }
+                              >
+                                1
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar2(2);
+                                }}
+                                className={
+                                  buttonBar2 >= 2
+                                    ? "creativity-score-button creativity-clicked"
+                                    : "creativity-score-button"
+                                }
+                              >
+                                2
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar2(3);
+                                }}
+                                className={
+                                  buttonBar2 >= 3
+                                    ? "creativity-score-button creativity-clicked"
+                                    : "creativity-score-button"
+                                }
+                              >
+                                3
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar2(4);
+                                }}
+                                className={
+                                  buttonBar2 >= 4
+                                    ? "creativity-score-button creativity-clicked"
+                                    : "creativity-score-button"
+                                }
+                              >
+                                4
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar2(5);
+                                }}
+                                className={
+                                  buttonBar2 >= 5
+                                    ? "creativity-score-button creativity-clicked"
+                                    : "creativity-score-button"
+                                }
+                              >
+                                5
+                              </button>
+                            </div>
+                          </div>
+                        </div>
 
-                                          <button
-                                              onClick={() =>
-                                                  handleCreateRating(outfit.id)
-                                              }
-                                              className="submit-rating"
-                                          >
-                                              Submit
-                                          </button>
-                                      </div>
-                                  </div>
-                              ))
-                              .slice(s, s + 1)
-                        : ""}
-                </div>
-            </section>
-            <div className="footer">
-                <Footer />
-            </div>
-        </>
+                        <div className="aspect">
+                          {subCategories(outfit)[2]}
+                          <div className="rating-bar">
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar3(1);
+                                }}
+                                className={
+                                  buttonBar3 >= 1
+                                    ? "suitability-score-button suitability-clicked"
+                                    : "suitability-score-button"
+                                }
+                              >
+                                1
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar3(2);
+                                }}
+                                className={
+                                  buttonBar3 >= 2
+                                    ? "suitability-score-button suitability-clicked"
+                                    : "suitability-score-button"
+                                }
+                              >
+                                2
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar3(3);
+                                }}
+                                className={
+                                  buttonBar3 >= 3
+                                    ? "suitability-score-button suitability-clicked"
+                                    : "suitability-score-button"
+                                }
+                              >
+                                3
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar3(4);
+                                }}
+                                className={
+                                  buttonBar3 >= 4
+                                    ? "suitability-score-button suitability-clicked"
+                                    : "suitability-score-button"
+                                }
+                              >
+                                4
+                              </button>
+                            </div>
+                            <div className="score">
+                              <button
+                                onClick={() => {
+                                  setButtonBar3(5);
+                                }}
+                                className={
+                                  buttonBar3 >= 5
+                                    ? "suitability-score-button suitability-clicked"
+                                    : "suitability-score-button"
+                                }
+                              >
+                                5
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <button
+                          onClick={() => handleCreateRating(outfit.id)}
+                          className="submit-rating"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                  .slice(s, s + 1)
+              : ""}
+          </div>
+        </section>
+        <div className="footer">
+          <Footer />
+        </div>
+      </>
     );
 }
 

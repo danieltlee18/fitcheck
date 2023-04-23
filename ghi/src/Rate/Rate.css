@@ -29,29 +29,52 @@
 }
 .outfit{
     border-right: 1vw solid white;
-    object-fit: cover;
-    max-width: 27vw;
-    min-width: none;
-    overflow: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    min-width: 100%;
+    width: 25vw;
+    position: relative;
+    overflow: hidden;
 }
 .outfit>img{
-    max-width: 27vw;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 2;
+    border: 2px rgba(255, 255, 255, 0.398) solid;
+}
+.img-blur-bg{
+    width: 500% !important;
+    position: absolute;
+    transform: translate(5px,5px);
+    z-index: 1;
+    filter: blur(30px);
 }
 .aspects{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 3em;
+    font-size: 4.5vmin;
+    height: 100%;
+    width: 35vw;
+    /* border-left: 1vw solid white; */
+}
+.aspects > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+    min-height: 0;
 }
 .aspect{
-    float: left;
     justify-content: center;
-    width: 100%;
-    margin-left: 7vw;
+    width: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .rating-bar{
-    width: 80%;
+    max-width: 90%;
     height: 5vh;
     border: 3px solid white;
     background-color: rgba(255, 255, 255, 0.728);
@@ -59,6 +82,7 @@
     display: grid;
     grid-template-columns: repeat(5,1fr);
     overflow: hidden;
+    margin: auto;
 }
 .score{
     color: gray;
@@ -127,11 +151,12 @@
     color: white;
 }
 
-
 .submit-rating{
-    margin-top: 3vh;
-    height: 5vh;
+    margin-bottom: 3vh;
+    height: 3vh;
+    max-height: 50px;
     width: 10vw;
+    min-width: 100px;
     border-radius: 50px;
     border: 3px solid white;
     background-color: rgba(0, 0, 255, 0.422);
@@ -145,8 +170,8 @@
     background-color: blue;
 }
 .style-occasion{
-    margin-bottom: 50px;
     justify-content: center;
+    margin-top: 5%;
 
 }
 

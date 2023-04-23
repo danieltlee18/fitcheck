@@ -19,7 +19,8 @@ body
     bottom: 0;
     background-repeat: no-repeat;
     width: 100vw;
-    position: static;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .webgl
