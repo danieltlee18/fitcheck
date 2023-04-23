@@ -1,9 +1,7 @@
 import "./UserOutfits.css";
 import Navbar from "../NavBar/Navbar.js";
 import Footer from "../Footer/Footer.js";
-import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { useCreateOutfitMutation } from "../services/outfit";
+import { useDispatch } from "react-redux";
 import { useListOutfitQuery } from "../services/outfit";
 import { useGetAccountQuery } from "../services/auth";
 import {
@@ -26,86 +24,64 @@ const UserOutfits = () => {
 
 
     return (
-        <>
-            <div className="navbar">
-                <Navbar />
-            </div>
-            <section className="rate-wrapper">
-                <div className="center-piece-frame">
-                    <div className="outfit-center-piece">
-                        {outfits
-                            .filter((outfit) => outfit.account_id == user.id)
-                            .map((outfit) => {
-                                console.log(outfit);
+      <>
+        <div className="navbar">
+          <Navbar />
+        </div>
+        <section className="my-outfits-wrapper">
+          <div className="my-outfits-center-piece-frame">
+            <div className="my-outfits-center-piece">
+              <div className="my-outfits">
+                {outfits
+                  .filter((outfit) => outfit.account_id == user.id)
+                  .map((outfit) => {
+                    console.log(outfit);
 
-                                return (
-                                    <div
-                                        key={outfit.id}
-                                        className="outfit-summary"
-                                    >
-                                        <div className="img-box">
-                                            <img src={outfit.img_url} />
-                                        </div>
-                                        <div className="ratings">
-                                            <div className="rating">
-                                                <p>
-                                                    {subCategories(outfit)[0]}
-                                                </p>
-                                                <div
-                                                    className="percentage"
-                                                    style={{
-                                                        width: `${
-                                                            20 *
-                                                            averageRatings(
-                                                                outfit
-                                                            )[0]
-                                                        }%`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                            <div className="rating">
-                                                <p>
-                                                    {subCategories(outfit)[1]}
-                                                </p>
-                                                <div
-                                                    className="percentage2"
-                                                    style={{
-                                                        width: `${
-                                                            20 *
-                                                            averageRatings(
-                                                                outfit
-                                                            )[1]
-                                                        }%`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                            <div className="rating">
-                                                <p>
-                                                    {subCategories(outfit)[2]}
-                                                </p>
-                                                <div
-                                                    className="percentage3"
-                                                    style={{
-                                                        width: `${
-                                                            20 *
-                                                            averageRatings(
-                                                                outfit
-                                                            )[2]
-                                                        }%`,
-                                                    }}
-                                                ></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                    </div>
-                </div>
-            </section>
-            <div className="footer">
-                <Footer />
+                    return (
+                      <div key={outfit.id} className="my-outfit-summary">
+                        <div className="img-box">
+                          <img src={outfit.img_url} />
+                        </div>
+                        <div className="ratings">
+                          <div className="rating">
+                            <p>{subCategories(outfit)[0]}</p>
+                            <div
+                              className="percentage"
+                              style={{
+                                width: `${20 * averageRatings(outfit)[0]}%`,
+                              }}
+                            ></div>
+                          </div>
+                          <div className="rating">
+                            <p>{subCategories(outfit)[1]}</p>
+                            <div
+                              className="percentage2"
+                              style={{
+                                width: `${20 * averageRatings(outfit)[1]}%`,
+                              }}
+                            ></div>
+                          </div>
+                          <div className="rating">
+                            <p>{subCategories(outfit)[2]}</p>
+                            <div
+                              className="percentage3"
+                              style={{
+                                width: `${20 * averageRatings(outfit)[2]}%`,
+                              }}
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
-        </>
+          </div>
+        </section>
+        <div className="footer">
+          <Footer />
+        </div>
+      </>
     );
 };
 export default UserOutfits;

@@ -40,11 +40,18 @@ const CreateOutfit = () => {
             <div className="left-side">
               <div className="left-side-bg">
                 {fields.img_url ? (
-                  <img
-                    src={fields.img_url}
-                    className="left-side-purple"
-                    alt="Card Background"
-                  />
+                  <>
+                    <img
+                      src={fields.img_url}
+                      className="uploaded-img-blur-bg"
+                      alt="Card Background"
+                    />
+                    <img
+                      src={fields.img_url}
+                      className="uploaded-image"
+                      alt="Card Background"
+                    />
+                  </>
                 ) : (
                   <>
                     <img
