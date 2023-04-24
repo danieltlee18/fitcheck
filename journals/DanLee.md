@@ -23,3 +23,5 @@
 4/19 - Refactored some code, finished up creating the rating functionality as well as being able to show a new outfit after succesfully rating an outfit
 
 4/20 - Fixed up all the back-end integrated functionality and everything is working for mvp, now just need to polish up front-end/css to make the website functionally attractice
+
+4/24 - Fixed up some front-end css issues so that it looks better
