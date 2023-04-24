@@ -11,7 +11,7 @@ import tom3 from "./images/tom3.webp";
 import cardBg from "./images/low-poly-grid-haikei.png";
 import silho from "./images/silhouette-fitcheck.png"
 import {subCategories, averageRatings} from "../UserOutfits/styleUtilities";
-
+import { Link } from "react-router-dom";
 const Dashboard = () => {
     // useEffect(() => {
     //   const tween = KUTE.fromTo(
@@ -143,19 +143,19 @@ const Dashboard = () => {
                             </div>
                             <div className="category">
                                 <div>
-                                    <select placeholder="Select a Category">
+                                    {/* <select placeholder="Select a Category">
                                         <option selected disabled hidden>
                                             Select a Category
                                         </option>
                                         <option>Formal</option>
                                         <option>Casual</option>
                                         <option>Sexy</option>
-                                    </select>
+                                    </select> */}
                                 </div>
                                 <div>
-                                    <button className="dashButton">
-                                        Rate some fits!
-                                    </button>
+                                    <Link to="/rate" >
+                                        <button className="dashButton">Rate some fits!</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

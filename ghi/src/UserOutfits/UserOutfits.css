@@ -1,41 +1,27 @@
-.create-outfit-form {
-    height: 100%;
-    width: 100%;
+.my-outfits-wrapper{
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
-
-.create-outfit-form form{
-    margin: auto;
+.my-outfits-center-piece-frame{
+    width: 96vw;
+    height: 68vh;
+    background-color: rgba(255, 255, 255, 0.178);
+    backdrop-filter: blur(7px);
+    border-radius: 50px;
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 35%;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
 }
-
-.label-input{
-    width: 60%;
-    font-family: thick;
-    display: flex;
-    flex-direction: column;
+.my-outfits{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
 }
-.label-input label{
-    font-size: 2em;
-}
-.label-input input{
-    font-family: thick;
-    height: 2.5vh;
-    font-size: 1.5em;
-}
-.label-input input::placeholder{
-    color: rgba(0, 0, 0, 0.25);
-}
-.outfit-center-piece{
-    width: 60vw;
+.my-outfits-center-piece{
+    width: 90vw;
     height: 60vh;
     background-color: #282b30;
     border: 10px solid white;
@@ -43,47 +29,47 @@
     overflow: hidden;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
+    overflow: auto;
 }
-.left-side{
-    overflow: hidden;
-}
-.left-side-bg{
-    width: 100%;
-}
-.left-side-purple{
-    position: absolute;
-    width: 50%;
-    border-right: 10px solid white;
-}
-.left-side-people{
-    position: absolute;
-    height: 100%;
-    width: 50%;
-}
-.create-outfit-select {
-    width: 60%;
-    margin-top: 2vh;
-    padding: 2%;
-    height: fit-content;
-    font-size: 1.5em !important;
-    border-radius: 15px;
-    margin-bottom: 0px;
+.my-outfit-summary{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: .1em;
+    scale: .9;
+    justify-content: space-evenly center;
+    height: 250px;
+    width: 95%;
+    background-color: #4c525c;
+    border-radius: 2em;
+    padding: 5px;
 }
 
-.signup-button{
-    margin-top: 3vh;
-    height: 5vh;
-    width: 10vw;
-    border-radius: 50px;
-    border: 3px solid white;
-    background-color: rgba(0, 0, 255, 0.422);
-    font-family: thick;
-    font-size: 1.25em;
-    color: white;
-    transition: 500ms;
-    cursor: pointer;
-}
-.signup-button:hover{
-    background-color: blue;
-}
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: none;
+    scrollbar-color: #4c525c #282b30;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 20px;
+    position: absolute;
+    max-height: 90%;
+    height: 90%;
+
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #282b3000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #4c525c;
+    border-radius: 10px;
+    border: 0px none #ff0000;
+  }
