@@ -109,6 +109,9 @@ body{
     align-content: stretch;
     row-gap: .1em;
 }
+.dash-no-fits{
+    font-size: 5vmin;
+}
 .left h1{
     padding: 0;
     margin: 0;
@@ -156,7 +159,7 @@ body{
     flex-direction: column;
     height: 100%;
     width: 100%;
-    row-gap: 30px;
+    row-gap: 20px;
     scale: .8;
 }
 .rating{
@@ -174,8 +177,8 @@ body{
 .rating p{
     position: absolute;
     z-index: 1;
-    font-size: 2em;
-    letter-spacing: .5em;
+    font-size: 2.0vmin;
+    letter-spacing: .25em;
     color: rgba(255, 255, 255, 0.581);
     padding: 0;
     margin: 0 0 0 20px;

@@ -73,12 +73,14 @@ const CreateOutfit = () => {
               <div className="create-outfit-form">
                 <form onSubmit={handleSubmit}>
                   <div className="label-input">
-                    <label htmlFor="imgUrl">img URL</label>
+                    <label htmlFor="imgUrl">image link</label>
                     <input
-                      placeholder="www.example.com"
+                      placeholder="instagram.com/photo"
+                      className="create-input"
                       id="imgUrl"
                       required
                       type="url"
+                      maxLength={1000}
                       value={fields.img_url}
                       onChange={(e) =>
                         dispatch(handleImgUrlChange(e.target.value))
@@ -89,10 +91,12 @@ const CreateOutfit = () => {
                     <label htmlFor="occasion">Occasion</label>
                     <input
                       placeholder="Date night, Job interview, etc..."
+                      className="create-input"
                       id="occasion"
                       type="text"
                       required
                       value={fields.occasion}
+                      maxLength={38}
                       onChange={(e) =>
                         dispatch(handleOccasionChange(e.target.value))
                       }
@@ -107,12 +111,14 @@ const CreateOutfit = () => {
                       dispatch(handleStyleChange(e.target.value))
                     }
                   >
-                    <option value="">Select a Category</option>
+                    <option value="">Category</option>
                     <option value="Casual">Casual</option>
                     <option value="Formal">Formal</option>
                     <option value="Sexy">Sexy</option>
                   </select>
-                  <button className="signup-button">Create Outfit</button>
+                  <button className="create-outfit-button">
+                    Create Outfit
+                  </button>
                 </form>
               </div>
             </div>

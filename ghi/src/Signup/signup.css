@@ -62,7 +62,7 @@
     align-items: center;
 }
 .signup-exit{
-    background-color: red;
+    background-color: rgb(155, 0, 0);
     width: 100%;
     font-size: 1.5em;
     color: white;
@@ -78,4 +78,8 @@
     font-weight: 700;
     cursor: pointer;
     z-index: 99999;
+    transition: 250ms;
+}
+.signup-exit:hover{
+    background-color: red;
 }

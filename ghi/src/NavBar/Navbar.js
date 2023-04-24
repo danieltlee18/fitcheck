@@ -12,7 +12,7 @@ const Navbar = () => {
 
         <Link to='/rate' className="button"> Rate Outfits </Link>
 
-        <Link to='/createoutfit' className="button"> Upload <br />New Outfit </Link>
+        <Link to='/createoutfit' className="button"> Upload Outfit </Link>
 
         <Link to='/' onClick={logout} className="button"> Logout </Link>
 
