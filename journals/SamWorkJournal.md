@@ -11,3 +11,7 @@
 5-Apr	Built signup form, added redux store state functionality. Implemented store state for  login and signup form. Queries coming next. I coded.
 6-Apr	Logan the man on the keyboard today. Got login and signup talking to backend with redux. Now creates accounts and logs them in.
 7-Apr	Dan and Amro coded today. Logout functionality works. Started work on create outfit page. Now dynamically loads image and shows preview when you paste a url
+17-Apr	Dan on the keyboard first and I followed up after lunch. Got creating an outfit and listing outfits to work with redux and backend. Still needs some polish and filtering done to list only your own outfits
+18-Apr	Logan and Amro on the keys today. Made good progress with ratings (its almost functional enough) still need to get skip functionality to work and maybe a better filter function. Have barebones reducer for ratings. List outfits now have filters
+19-Apr	Amro in the morning, Logan in the afternoon and I squeezed an hour in late. Ratings functionality refactored and backend expanded to include average ratings on the data so front end doesn't need to calculate it.
+20-Apr	Logan and I on the keys today. Finished dashboard sort rating functionality and spent some time with css getting things looking better including scrollbar, text spacing, size of elements. Skip functionality only thing left for MVP
