@@ -69,15 +69,19 @@ const Rate = () => {
                           src={outfit.img_url}
                           alt="sample"
                         />
+                        {console.log(outfit.img_url)}
                         <img src={outfit.img_url} alt="sample" />
                       </div>
                       <div className="aspects">
                         <div className="style-occasion">
                           <h3>{outfit.style}</h3>
-                          <h6>Occasion: {outfit.occasion}</h6>
+                          <h6>Occasion | {outfit.occasion.slice(0,38)}</h6>
                         </div>
                         <div className="aspect">
+
+                          <div className="subcategory">
                           {subCategories(outfit)[0]}
+                          </div>
 
                           <div className="rating-bar">
                             <div className="score">
@@ -154,7 +158,9 @@ const Rate = () => {
                         </div>
 
                         <div className="aspect">
+                          <div className="subcategory">
                           {subCategories(outfit)[1]}
+                          </div>
                           <div className="rating-bar">
                             <div className="score">
                               <button
@@ -230,7 +236,9 @@ const Rate = () => {
                         </div>
 
                         <div className="aspect">
+                          <div className="subcategory">
                           {subCategories(outfit)[2]}
+                          </div>
                           <div className="rating-bar">
                             <div className="score">
                               <button

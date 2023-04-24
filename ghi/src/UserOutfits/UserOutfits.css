@@ -16,6 +16,11 @@
     align-items: center;
     box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
 }
+.no-fits{
+  margin: auto;
+  text-align: center;
+  font-size: 8vmin;
+}
 .my-outfits{
     display: grid;
     grid-template-columns: repeat(1,1fr);
@@ -39,12 +44,77 @@
     gap: .1em;
     scale: .9;
     justify-content: space-evenly center;
-    height: 250px;
+    height: 275px;
     width: 95%;
     background-color: #4c525c;
     border-radius: 2em;
     padding: 5px;
 }
+.my-img-box{
+    border: 2px solid white;
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    max-height: 95%;
+    border-radius: 2em;
+    position: relative;
+    overflow: hidden;
+    margin-left: 1em;
+}
+.ratings-with-desc{
+  width: 100%;
+  font-size: 3vmin;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  text-align: center;
+  text-overflow: clip;
+  max-height: 250px;
+}
+.ratings-with-desc h3{
+  margin: auto;
+  margin-top: 1vh;
+  word-wrap: break-word;
+  max-width: 45vw;
+}
+.my-rating{
+    border: 2px solid white;
+    row-gap: 5px;
+    border-radius: 25px 25px 25px 25px;
+    background-color: #424549;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.bar-with-rating{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.out-of-five{
+  width: 30px;
+  margin: 0;
+  font-size: 3.75vmin;
+  margin-left: 10px;
+}
+
+.my-rating p{
+    position: absolute;
+    z-index: 1;
+    font-size: 3.0vmin;
+    letter-spacing: .25em;
+    color: rgba(255, 255, 255, 0.581);
+    padding: 0;
+    margin: 0 0 0 20px;
+}
+
 
 /* ===== Scrollbar CSS ===== */
   /* Firefox */
