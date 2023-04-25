@@ -6,7 +6,7 @@
     align-items: center;
 }
 .center-piece-frame{
-    width: 68vw;
+    width: 80vw;
     height: 68vh;
     background-color: rgba(255, 255, 255, 0.178);
     backdrop-filter: blur(7px);
@@ -17,7 +17,7 @@
     box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
 }
 .center-piece{
-    width: 60vw;
+    width: 74vw;
     height: 60vh;
     background-color: #282b30;
     border: 10px solid white;
@@ -34,22 +34,63 @@
     align-items: center;
     height: 60vh;
     min-width: 100%;
-    width: 25vw;
+    width: 35vw;
     position: relative;
     overflow: hidden;
 }
 .outfit>img{
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 80%;
     position: absolute;
     z-index: 2;
     border: 2px rgba(255, 255, 255, 0.398) solid;
 }
 .img-blur-bg{
     width: 500% !important;
+    height: 500% !important;
     position: absolute;
     z-index: 1;
     filter: blur(30px);
+}
+.img-header{
+    width: 100%;
+    word-break: break-all;
+    position: absolute;
+    z-index: 4;
+    /* background-image: linear-gradient(to bottom, rgb(255,162,121),rgba(255, 255, 255, 0)); */
+    height: 5vh;
+    top: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.img-header p{
+    position: absolute;
+    width: 80%;
+    margin: 0 !important;
+    font-size: 4vmin;
+    text-shadow: 0 0 10px black;
+}
+.caption{
+    width: 100%;
+    position: absolute;
+    z-index: 4;
+    /* background-image: linear-gradient(to top,rgb(253,125,179),rgba(255, 255, 255, 0)); */
+    height: 5vh;
+    bottom: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.caption p {
+    position: absolute;
+    width: 80%;
+    margin: 0 !important;
+    font-size: 2.5vmin;
+    text-shadow: 0 0 7.5px black;
 }
 .aspects{
     display: flex;
@@ -58,8 +99,7 @@
     align-items: center;
     font-size: 4.5vmin;
     height: 100%;
-    width: 35vw;
-    /* border-left: 1vw solid white; */
+    width: 40vw;
 }
 .style-occasion h6{
     text-align: center;

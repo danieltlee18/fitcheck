@@ -64,23 +64,27 @@ const Rate = () => {
                   .map((outfit) => (
                     <div key={outfit.id} className="center-piece">
                       <div className="outfit">
+                        <div className="img-header">
+                          <p>style | {outfit.style}</p>
+                        </div>
                         <img
                           className="img-blur-bg"
                           src={outfit.img_url}
                           alt="sample"
                         />
-                        {console.log(outfit.img_url)}
                         <img src={outfit.img_url} alt="sample" />
+                        <div className="caption">
+                          <p>occasion | {outfit.occasion.slice(0, 38)}</p>
+                        </div>
                       </div>
                       <div className="aspects">
                         <div className="style-occasion">
-                          <h3>{outfit.style}</h3>
-                          <h6>Occasion | {outfit.occasion.slice(0,38)}</h6>
+                          {/* <h3>{outfit.style}</h3> */}
+                          {/* <h6>Occasion | {outfit.occasion.slice(0, 38)}</h6> */}
                         </div>
                         <div className="aspect">
-
                           <div className="subcategory">
-                          {subCategories(outfit)[0]}
+                            {subCategories(outfit)[0]}
                           </div>
 
                           <div className="rating-bar">
@@ -159,7 +163,7 @@ const Rate = () => {
 
                         <div className="aspect">
                           <div className="subcategory">
-                          {subCategories(outfit)[1]}
+                            {subCategories(outfit)[1]}
                           </div>
                           <div className="rating-bar">
                             <div className="score">
@@ -237,7 +241,7 @@ const Rate = () => {
 
                         <div className="aspect">
                           <div className="subcategory">
-                          {subCategories(outfit)[2]}
+                            {subCategories(outfit)[2]}
                           </div>
                           <div className="rating-bar">
                             <div className="score">
