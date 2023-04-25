@@ -25,3 +25,5 @@
 4/20 - Fixed up all the back-end integrated functionality and everything is working for mvp, now just need to polish up front-end/css to make the website functionally attractice
 
 4/24 - Fixed up some front-end css issues so that it looks better
+
+4/25 - Unit test
