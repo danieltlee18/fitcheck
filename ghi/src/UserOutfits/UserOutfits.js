@@ -32,7 +32,7 @@ const UserOutfits = () => {
         <div className="my-outfits-center-piece-frame">
           <div className="my-outfits-center-piece">
             <div className="my-outfits">
-              {outfits.length === 0 ? (
+              {outfits.length > 0 ? (
                 outfits
                   .filter((outfit) => outfit.account_id == user.id)
                   .map((outfit) => {
