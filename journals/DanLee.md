@@ -27,3 +27,5 @@
 4/24 - Fixed up some front-end css issues so that it looks better
 
 4/25 - Unit test
+
+4/26 - Finished up unit testing for all 4 members and created a delete button on the front-end for outfits that would delete the outfit and re-render the page
