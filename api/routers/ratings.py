@@ -9,7 +9,7 @@ router = APIRouter()
 def create_rating(
     outfit_id: int,
     rating: RatingIn,
-    repo: RatingRepo = Depends(),
+    repo: RatingRepo = Depends(RatingRepo),
     curr_account: dict=Depends(authenticator.get_current_account_data)
     ) -> RatingOut:
 

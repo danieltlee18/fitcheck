@@ -6,6 +6,7 @@ from main import app
 from queries.authenticator import authenticator
 from queries.outfits import OutfitRepo, OutfitIn, OutfitOut
 from queries.accounts import AccountOut
+from queries.ratings import RatingOut, RatingRepo
 
 client = TestClient(app)
 
@@ -130,3 +131,35 @@ def test_create_outfit():
     app.dependency_overrides = {}
     assert response.status_code == 200
     assert response.json() == example_outfit_out
+
+
+test_rating_in = {
+    "category_1": 2,
+    "category_2": 3,
+    "category_3": 4
+}
+test_rating_out = {
+    "id": 1,
+    "category_1": 2,
+    "category_2": 3,
+    "category_3": 4,
+    "outfit_id": 5,
+    "account_id": 1,
+}
+
+class test_rating_repo:
+    def create_rating(s, a, b, c):
+        return test_rating_out
+    def check_rating_by_outfit_id_and_account_id(self, outfit_id, account_id):
+        pass
+
+def test_create_rating():
+    app.dependency_overrides[RatingRepo] = test_rating_repo
+    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+
+    response = client.post("/api/outfits/5/ratings", json=test_rating_in)
+
+    app.dependency_overrides = {}
+
+    assert response.status_code == 200
+    assert response.json() == test_rating_out

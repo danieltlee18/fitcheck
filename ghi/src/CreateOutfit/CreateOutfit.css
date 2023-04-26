@@ -33,7 +33,7 @@
   color: rgba(0, 0, 0, 0.25);
 }
 .outfit-center-piece-create {
-  width: 60vw;
+  width: 70vw;
   height: 60vh;
   background-color: #282b30;
   border: 10px solid white;
@@ -54,7 +54,7 @@
   justify-content: center;
   align-items: center;
   height: 60vh;
-  width: 30vw;
+  width: 35vw;
   overflow: hidden;
 }
 .uploaded-image {
@@ -68,6 +68,7 @@
 }
 .uploaded-img-blur-bg{
     width: 500% !important;
+    height: 500% !important;
     position: absolute;
     transform: translate(5px,5px);
     filter: blur(30px);
@@ -79,7 +80,7 @@
 }
 .left-side-people {
   position: absolute;
-  height: 60%;
+  height: 65%;
   width: 95%;
 }
 .create-input{
