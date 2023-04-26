@@ -31,4 +31,16 @@
 04/18/23 | We finished adding the filter to the list outfits page to only show the current user's outfits. We mostly finished up the rating page, and just need to add a filter that only shows outfits that do not belong to the user. We will finish that tomorrow along with the functionality to show the user's top 3 outfits on the dashboard.
 
 
-04/19/23 | Today we added the functionality to only show other users when rating outfits. We also refactored the code for rating an outfit to make it more streamlined. 
+04/19/23 | Today we added the functionality to only show other users when rating outfits. We also refactored the code for rating an outfit to make it more streamlined.
+
+
+04/20/23 | Today we finished the top three outfits functionality for the dashboard, added some more context to the outfits when rating other users' outfits, and we added scrolling functionality to the list of your outfits, along with a custom scrollbar.
+
+
+04/24/23 | Today we did a lot of cleaning up of CSS stuff to make the website look much better. We also added links to the my outfits and dashboard pages that will show if the user has not uploaded any outfits.
+
+
+04/25/23 | Today we worked on unit testing and diving deeper into learning how they work. We got the unit test for getting a user's account working.
+
+
+04/26/23 | 

@@ -1,20 +1,17 @@
+
 from pydantic import BaseModel
 from fastapi import FastAPI, HTTPException, status
 from fastapi.testclient import TestClient
 from main import app
 from queries.authenticator import authenticator
-from queries.outfits import OutfitRepo
+from queries.outfits import OutfitRepo, OutfitIn, OutfitOut
+from queries.accounts import AccountOut
 
 client = TestClient(app)
 
-class UserOut(BaseModel):
-    id: int
-    username: str
-    email: str
-
 
 def fake_get_current_account_data():
-    return UserOut(id=1, username="TomHolland", email="spider@man.com")
+    return AccountOut(id=1, username="TomHolland", email="spider@man.com").dict()
 
 def fake_failed_get_current_account_data():
     raise HTTPException(
@@ -32,7 +29,7 @@ def test_get_account():
     app.dependency_overrides = {}
     # Assert
     assert response.status_code == 200
-    assert response.json() == UserOut(id=1, username="TomHolland", email="spider@man.com")
+    assert response.json() == AccountOut(id=1, username="TomHolland", email="spider@man.com")
 
 def test_invalid_get_account():
     app.dependency_overrides[authenticator.get_current_account_data] = fake_failed_get_current_account_data
@@ -96,11 +93,27 @@ output = {
                 "avg_rating": 2.4,
             }]
     }
+
+example_outfit_in = {
+    "img_url": "test_url",
+    "style": "epic",
+    "occasion": "str | None",
+}
+
+example_outfit_out = {
+    "img_url": "test_url",
+    "style": "beach",
+    "occasion": "str | None",
+    "id": 2,
+    "account_id": 4,
+    "ratings": [],
+    "avg_rating": 0,
+}
 class fake_outfit_repo:
     def list_outfits(self):
         return output
-    def create_outfit(self):
-        pass
+    def create_outfit(self, Outfit, account_id):
+        return example_outfit_out
 
 def test_list_outfits():
     app.dependency_overrides[OutfitRepo] = fake_outfit_repo
@@ -108,3 +121,12 @@ def test_list_outfits():
     app.dependency_overrides = {}
     assert response.status_code == 200
     assert response.json() == output
+
+
+def test_create_outfit():
+    app.dependency_overrides[OutfitRepo] = fake_outfit_repo
+    app.dependency_overrides[authenticator.get_current_account_data] = fake_get_current_account_data
+    response = client.post("/api/outfits", json=example_outfit_in)
+    app.dependency_overrides = {}
+    assert response.status_code == 200
+    assert response.json() == example_outfit_out

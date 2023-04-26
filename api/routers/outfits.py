@@ -13,7 +13,7 @@ router = APIRouter()
 @router.post("/api/outfits", response_model = OutfitOut)
 def create_outfit(
     outfit: OutfitIn,
-    repo: OutfitRepo = Depends(),
+    repo: OutfitRepo = Depends(OutfitRepo),
     curr_account: dict=Depends(authenticator.get_current_account_data)
     ) -> OutfitOut:
     new_outfit = repo.create_outfit(outfit, curr_account["id"])
