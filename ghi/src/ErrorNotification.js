@@ -3,11 +3,7 @@ function ErrorNotification(props) {
         return null;
     }
 
-    return (
-        <div className="notification is-danger">
-            {props.error}
-        </div>
-    );
+    return <div className="notification is-danger">{props.error}</div>;
 }
 
 export default ErrorNotification;

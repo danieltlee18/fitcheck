@@ -22,7 +22,6 @@ def create_outfit(
 @router.get("/api/outfits", response_model = AllOutfits)
 def list_outfits(
     repo: OutfitRepo = Depends(OutfitRepo),
-    # curr_account: dict=Depends(authenticator.get_current_account_data)
 ) -> AllOutfits:
     outfits = repo.list_outfits()
     return outfits

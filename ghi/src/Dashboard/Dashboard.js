@@ -13,23 +13,6 @@ import silho from "./images/silhouette-fitcheck.png";
 import { subCategories, averageRatings } from "../UserOutfits/styleUtilities";
 import { Link } from "react-router-dom";
 const Dashboard = () => {
-  // useEffect(() => {
-  //   const tween = KUTE.fromTo(
-  //     "#blob1_right",
-  //     { path: "#blob1_right", visibility: "hidden" },
-  //     { path: "#blob2_right", visibility: "hidden" },
-  //     { repeat: 999, duration: 1500, yoyo: true }
-  //   );
-  //   const tween2 = KUTE.fromTo(
-  //       "#blob1_left",
-  //       { path: "#blob1_left", visibility: "hidden" },
-  //       { path: "#blob2_left", visibility: "hidden" },
-  //       { repeat: 999, duration: 1500, yoyo: true }
-  //   );
-  //   tween.start()
-  //   tween2.start()
-  // }, []);
-
   const { data: outfits, isLoading } = useListOutfitQuery();
   const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
   console.log(outfits);
@@ -109,16 +92,6 @@ const Dashboard = () => {
                 <img src={silho} className="sil" alt="Silhouettes" />
               </div>
               <div className="category">
-                <div>
-                  {/* <select placeholder="Select a Category">
-                                        <option selected disabled hidden>
-                                            Select a Category
-                                        </option>
-                                        <option>Formal</option>
-                                        <option>Casual</option>
-                                        <option>Sexy</option>
-                                    </select> */}
-                </div>
                 <div>
                   <Link to="/rate">
                     <button className="dashButton">Rate some fits!</button>
