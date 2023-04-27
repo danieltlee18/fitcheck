@@ -9,7 +9,7 @@
 
 - [API design](docs/apis.md)
 - [Data model](docs/data-model.md)
-- [GHI](docs/ghi.md)
+- [GHI](docs/GHI_/ghi.md)
 - [Integrations](docs/integrations.md)
 
 ## Intended Market
