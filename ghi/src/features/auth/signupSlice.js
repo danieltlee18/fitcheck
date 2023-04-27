@@ -2,13 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     fields: {
-    username: "",
-    email: "",
-    password: "",
-    passwordConfirmation: ""
+        username: "",
+        email: "",
+        password: "",
+        passwordConfirmation: "",
     },
-    errorMessage: null
-}
+    errorMessage: null,
+};
 
 const signupSlice = createSlice({
     name: "signup:",

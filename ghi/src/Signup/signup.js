@@ -9,34 +9,33 @@ import {
     reset,
     error,
 } from "../features/auth/signupSlice";
-import { useSignupMutation } from '../services/auth';
+import { useSignupMutation } from "../services/auth";
 import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-    const dispatch = useDispatch()
-    const { errorMessage, fields } = useSelector(state => state.signup)
+    const dispatch = useDispatch();
+    const { errorMessage, fields } = useSelector((state) => state.signup);
     const [signup] = useSignupMutation();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (fields.password != fields.passwordConfirmation) {
-            dispatch(error('Password does not match confirmation'))
+            dispatch(error("Password does not match confirmation"));
             dispatch(reset());
 
             return;
         } else {
-            console.log(fields)
+            console.log(fields);
             const result = await signup({
                 username: fields.username,
                 email: fields.email,
                 password: fields.password,
-            })
-            dispatch(reset())
+            });
+            dispatch(reset());
             navigate("/dashboard");
         }
-    }
-
+    };
 
     return (
         <section className="signup-wrapper">
@@ -80,11 +79,7 @@ const Signup = () => {
                             id="password"
                             value={fields.password}
                             onChange={(e) =>
-                                dispatch(
-                                    handlePasswordChange(
-                                        e.target.value
-                                    )
-                                )
+                                dispatch(handlePasswordChange(e.target.value))
                             }
                             required
                         ></input>

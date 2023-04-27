@@ -1,30 +1,32 @@
 import "./Login.css";
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {handleUsernameChange, handlePasswordChange, reset}  from "../features/auth/loginSlice"
+import {
+    handleUsernameChange,
+    handlePasswordChange,
+    reset,
+} from "../features/auth/loginSlice";
 import { useLoginMutation } from "../services/auth";
-import { useNavigate } from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const dispatch = useDispatch();
-    const [login] = useLoginMutation()
+    const [login] = useLoginMutation();
     const { fields } = useSelector((state) => state.login);
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const result = await login(fields)
-            dispatch(reset())
-            console.log(result)
+            const result = await login(fields);
+            dispatch(reset());
+            console.log(result);
             if (result.data?.access_token) {
                 navigate("/dashboard");
             }
         } catch (error) {
             console.error(error);
         }
-
     };
 
     return (
