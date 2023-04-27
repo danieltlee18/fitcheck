@@ -15,3 +15,7 @@
 18-Apr	Logan and Amro on the keys today. Made good progress with ratings (its almost functional enough) still need to get skip functionality to work and maybe a better filter function. Have barebones reducer for ratings. List outfits now have filters
 19-Apr	Amro in the morning, Logan in the afternoon and I squeezed an hour in late. Ratings functionality refactored and backend expanded to include average ratings on the data so front end doesn't need to calculate it.
 20-Apr	Logan and I on the keys today. Finished dashboard sort rating functionality and spent some time with css getting things looking better including scrollbar, text spacing, size of elements. Skip functionality only thing left for MVP
+24-Apr	Amro on keys. Mostly cleaning up css stuff for various screens. Adding edge cases for no outfits, fitting and resizing text and placing sytle and ratings on
+25-Apr	Cleaning up edge cases more work on css and starting on tests. Got a couple tests working for account endpoint
+26-Apr	Finished up writing tests. Completed delete functionality using tags
+27-Apr	Completed docs, readme, cleaning up code, some css bugs. Need one last sweep of code cleanliness
