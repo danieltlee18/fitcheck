@@ -1,5 +1,3 @@
-# authenticator.py
-# from fastapi import Depends
 from pydantic import BaseModel
 from routers.pool import pool
 
@@ -7,21 +5,24 @@ from routers.pool import pool
 class DuplicateAccountError(ValueError):
     pass
 
+
 class AccountIn(BaseModel):
     email: str
     password: str
     username: str
+
 
 class AccountOut(BaseModel):
     id: int
     email: str
     username: str
 
+
 class AccountOutWithPassword(AccountOut):
     hashed_password: str
 
-class AccountQueries:
 
+class AccountQueries:
     def get(self, username: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as curs:
@@ -31,22 +32,23 @@ class AccountQueries:
                     FROM accounts
                     WHERE username = %s;
                     """,
-                    [username]
+                    [username],
                 )
-                print(curs)
                 u_name = curs.fetchone()
                 if u_name == None:
                     return None
 
                 out_user = AccountOutWithPassword(
-                    id = u_name[0],
-                    email = u_name[1],
-                    username = u_name[2],
-                    hashed_password = u_name[3]
+                    id=u_name[0],
+                    email=u_name[1],
+                    username=u_name[2],
+                    hashed_password=u_name[3],
                 )
                 return out_user
 
-    def create(self, info: AccountIn, hashed_password: str) -> AccountOutWithPassword:
+    def create(
+        self, info: AccountIn, hashed_password: str
+    ) -> AccountOutWithPassword:
         info.username = info.username.lower()
         account = info.dict()
         del account["password"]
@@ -59,9 +61,8 @@ class AccountQueries:
                     FROM accounts
                     WHERE (username = %s or email = %s)
                     """,
-                    [account["username"], account["email"]]
+                    [account["username"], account["email"]],
                 )
-                print("before fetch", account, account["username"])
                 db_account = curs.fetchone
                 if curs.fetchone() is not None:
                     raise DuplicateAccountError
@@ -72,7 +73,11 @@ class AccountQueries:
                     VALUES (%s, %s, %s)
                     RETURNING id
                     """,
-                    [account["username"], account["email"], account["hashed_password"]]
+                    [
+                        account["username"],
+                        account["email"],
+                        account["hashed_password"],
+                    ],
                 )
                 account["id"] = output.fetchone()[0]
-        return AccountOutWithPassword(**account )
+        return AccountOutWithPassword(**account)

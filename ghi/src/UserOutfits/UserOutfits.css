@@ -16,14 +16,16 @@
     align-items: center;
     box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
 }
-.no-fits{
-  margin: auto;
-  text-align: center;
-  font-size: 8vmin;
-}
+
 .my-outfits{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(2,1fr);
+}
+.no-fits{
+  text-align: center;
+  font-size: 8vmin;
+  position: absolute;
+  width: 100%;
 }
 .my-outfits-center-piece{
     width: 90vw;
@@ -89,7 +91,29 @@
     align-items: center;
     width: 100%;
 }
-
+.delete-outfit{
+  cursor: pointer;
+  border: 2px solid rgb(52, 0, 0);
+  background-color: rgb(123, 0, 0);
+  height: 3vh;
+  width: 12vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  margin-bottom: 1vh;
+  margin-right: 1vw;
+  border-radius: 2em;
+  font-size: 2vmin;
+  box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.439);
+  transition: 250ms;
+}
+.delete-outfit:hover{
+  background-color: red;
+  box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.439);
+}
 .bar-with-rating{
   display: flex;
   flex-direction: row;
@@ -108,7 +132,7 @@
 .my-rating p{
     position: absolute;
     z-index: 1;
-    font-size: 3.0vmin;
+    font-size: 2.5vmin;
     letter-spacing: .25em;
     color: rgba(255, 255, 255, 0.581);
     padding: 0;

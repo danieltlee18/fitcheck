@@ -1,4 +1,3 @@
-# router.py
 from fastapi import (
     Depends,
     HTTPException,
@@ -58,5 +57,4 @@ async def get_account(
     repo: AccountQueries = Depends(),
     curr_account: dict=Depends(authenticator.get_current_account_data)
 ) -> AccountOut:
-    print(curr_account)
     return curr_account

@@ -1,6 +1,5 @@
 steps = [
     [
-        # "Up" SQL statement
         """
         CREATE TABLE accounts (
             id SERIAL PRIMARY KEY NOT NULL,
@@ -9,13 +8,11 @@ steps = [
             hashed_password VARCHAR(500) NOT NULL
         );
         """,
-        # "Down" SQL statement
         """
         DROP TABLE accounts;
         """
     ],
     [
-        # "Up" SQL statement
         """
         CREATE TABLE outfits (
             id SERIAL PRIMARY KEY NOT NULL,
@@ -27,13 +24,11 @@ steps = [
             FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE
         );
         """,
-        # "Down" SQL statement
         """
         DROP TABLE outfits;
         """
     ],
     [
-        # "Up" SQL statement
         """
         CREATE TABLE ratings (
             id SERIAL PRIMARY KEY NOT NULL,
@@ -46,7 +41,6 @@ steps = [
             FOREIGN KEY (account_id) REFERENCES accounts(id) ON DELETE CASCADE
         );
         """,
-        # "Down" SQL statement
         """
         DROP TABLE ratings;
         """
