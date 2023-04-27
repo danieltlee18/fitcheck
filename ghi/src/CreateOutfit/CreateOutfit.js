@@ -26,7 +26,6 @@ const CreateOutfit = () => {
             style: fields.style,
             occasion: fields.occasion,
         });
-        console.log(result);
     };
     return (
         <>

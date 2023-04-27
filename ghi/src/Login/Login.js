@@ -20,7 +20,6 @@ const Login = () => {
         try {
             const result = await login(fields);
             dispatch(reset());
-            console.log(result);
             if (result.data?.access_token) {
                 navigate("/dashboard");
             }

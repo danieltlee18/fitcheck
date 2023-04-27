@@ -34,7 +34,6 @@ class AccountQueries:
                     """,
                     [username],
                 )
-                print(curs)
                 u_name = curs.fetchone()
                 if u_name == None:
                     return None
@@ -64,7 +63,6 @@ class AccountQueries:
                     """,
                     [account["username"], account["email"]],
                 )
-                print("before fetch", account, account["username"])
                 db_account = curs.fetchone
                 if curs.fetchone() is not None:
                     raise DuplicateAccountError

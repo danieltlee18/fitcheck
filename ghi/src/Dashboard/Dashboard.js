@@ -15,7 +15,6 @@ import { Link } from "react-router-dom";
 const Dashboard = () => {
   const { data: outfits, isLoading } = useListOutfitQuery();
   const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
-  console.log(outfits);
 
   if (isLoading || isUserLoading) {
     return <div>loading</div>;
