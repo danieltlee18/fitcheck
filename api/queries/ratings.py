@@ -68,7 +68,6 @@ class RatingRepo:
                 )
 
                 db_rating = result.fetchall()[0]
-        print("DB________RATING", db_rating[0])
 
         rating_out = RatingOut(
             id=db_rating[0],
@@ -79,7 +78,6 @@ class RatingRepo:
             account_id=db_rating[5]
             )
         avg = self.get_avg_rating(rating_out.outfit_id)
-        print("AAAAVVVEEERRAGE", avg, rating_out.outfit_id)
         self.update_outfit_average_rating(rating_out.outfit_id, avg)
         return rating_out
 
@@ -121,11 +119,9 @@ class RatingRepo:
             fit_id: int
     ) -> float:
         results = self.get_ratings(fit_id)
-        print("aaaaaaaaaaaaaaaaaaaaa", results)
         total = 0
         for rating in results:
             total += rating.category_1 + rating.category_2 + rating.category_3
-        print("BBBBBBBBBBBBBB", total)
         return  total/(len(results) * 3) if len(results) > 0 else 0
 
 
@@ -140,7 +136,6 @@ class RatingRepo:
                         """,
                         [avg_rating, outfit_id]
                     )
-                    print("AVERAGE RATING:", avg_rating,"outfitid", outfit_id)
         except Exception as e:
             print("SOMETHING WENT WRONG", e)
             return e

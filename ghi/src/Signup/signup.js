@@ -26,7 +26,6 @@ const Signup = () => {
 
             return;
         } else {
-            console.log(fields);
             const result = await signup({
                 username: fields.username,
                 email: fields.email,
