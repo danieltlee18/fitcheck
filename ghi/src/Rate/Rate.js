@@ -57,6 +57,10 @@ const Rate = () => {
             </div>
             <section className="rate-wrapper">
                 <div className="center-piece-frame">
+                    <div className="no-rates">
+                        No outfits left to rate! <br />
+                        Refresh or come back later for more!
+                    </div>
                     {!isLoading && !isUserLoading
                         ? outfits
                               .filter((rating) => filterRatedOutfits(rating))

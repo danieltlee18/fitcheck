@@ -13,7 +13,7 @@
 | email           | string  | yes    | no       |
 | hashed_password | string  | no     | no       |
 
-The `account` entity contains the data about a specific users' account
+The `account` entity contains the data about a specific user's account
 
 ## Outfits microservice
 

@@ -26,6 +26,19 @@
     grid-template-columns: repeat(2,1fr);
     overflow: hidden;
     position: relative;
+    z-index: 2;
+}
+.no-rates{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 4vmin;
 }
 .outfit{
     border-right: 1vw solid white;

@@ -1,27 +1,27 @@
-.my-outfits-wrapper{
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.my-outfits-wrapper {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.my-outfits-center-piece-frame{
-    width: 96vw;
-    height: 68vh;
-    background-color: rgba(255, 255, 255, 0.178);
-    backdrop-filter: blur(7px);
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
+.my-outfits-center-piece-frame {
+  width: 96vw;
+  height: 68vh;
+  background-color: rgba(255, 255, 255, 0.178);
+  backdrop-filter: blur(7px);
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px 10px rgba(255, 255, 255, 0.33);
 }
 
-.my-outfits{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+.my-outfits {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
-.no-fits{
+.no-fits {
   text-align: center;
   font-size: 8vmin;
   position: absolute;
@@ -29,35 +29,35 @@
   top: 50%;
   transform: translateY(-50%);
 }
-.my-outfits-center-piece{
-    width: 90vw;
-    height: 60vh;
-    background-color: #282b30;
-    border: 10px solid white;
-    border-radius: 50px;
-    overflow: hidden;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    overflow: auto;
+.my-outfits-center-piece {
+  width: 90vw;
+  height: 60vh;
+  background-color: #282b30;
+  border: 10px solid white;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: auto;
 }
-.my-outfit-summary{
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    gap: .1em;
-    scale: .9;
-    justify-content: space-evenly center;
-    height: 275px;
-    width: 95%;
-    background-color: #4c525c;
-    border-radius: 2em;
-    padding: 5px;
+.my-outfit-summary {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap: 0.1em;
+  scale: 0.92;
+  justify-content: space-evenly;
+  height: fit-content;
+  width: 100%;
+  background-color: #4c525c;
+  border-radius: 2em;
+  padding: 5px;
 }
 .my-img-box{
     border: 2px solid white;
     width: 60%;
-    height: 100%;
+    height: 25vh;
     margin: auto;
     max-height: 95%;
     border-radius: 2em;
@@ -65,35 +65,56 @@
     overflow: hidden;
     margin-left: 1em;
 }
-.ratings-with-desc{
+
+.my-img-box img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.ratings-with-desc {
   width: 100%;
   font-size: 3vmin;
   display: grid;
-  grid-template-columns: repeat(1,1fr);
+  grid-template-rows: 1fr 3fr 1fr;
   text-align: center;
   text-overflow: clip;
-  max-height: 250px;
+  height: fit-content;
 }
-.ratings-with-desc h3{
+.rating-header {
   margin: auto;
-  margin-top: 1vh;
   word-wrap: break-word;
   max-width: 45vw;
 }
-.my-rating{
-    border: 2px solid white;
-    row-gap: 5px;
-    border-radius: 25px 25px 25px 25px;
-    background-color: #424549;
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+.my-rating {
+  border: 2px solid white;
+  border-radius: 25px 25px 25px 25px;
+  background-color: #424549;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 }
-.delete-outfit{
+.delete-wrapper {
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+.occasion-p{
+  font-size: 1.5vmin;
+  color: rgb(183, 183, 183);
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.delete-outfit {
   cursor: pointer;
   border: 2px solid rgb(52, 0, 0);
   background-color: rgb(123, 0, 0);
@@ -102,21 +123,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  right: 0;
-  bottom: 0;
-  position: absolute;
-  margin-bottom: 1vh;
-  margin-right: 1vw;
+  position: relative;
   border-radius: 2em;
   font-size: 2vmin;
   box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.439);
   transition: 250ms;
+  float: right;
 }
-.delete-outfit:hover{
+.delete-outfit:hover {
   background-color: red;
   box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.439);
 }
-.bar-with-rating{
+.bar-with-rating {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -124,48 +142,46 @@
   height: 100%;
 }
 
-.out-of-five{
+.out-of-five {
   width: 30px;
   margin: 0;
   font-size: 3.75vmin;
   margin-left: 10px;
 }
 
-.my-rating p{
-    position: absolute;
-    z-index: 1;
-    font-size: 2.5vmin;
-    letter-spacing: .25em;
-    color: rgba(255, 255, 255, 0.581);
-    padding: 0;
-    margin: 0 0 0 20px;
+.my-rating p {
+  position: absolute;
+  z-index: 1;
+  font-size: 2.5vmin;
+  letter-spacing: 0.25em;
+  color: rgba(255, 255, 255, 0.581);
+  padding: 0;
+  margin: 0 0 0 20px;
 }
 
-
 /* ===== Scrollbar CSS ===== */
-  /* Firefox */
-  * {
-    scrollbar-width: none;
-    scrollbar-color: #4c525c #282b30;
-  }
+/* Firefox */
+* {
+  scrollbar-width: none;
+  scrollbar-color: #4c525c #282b30;
+}
 
-  /* Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 20px;
-    position: absolute;
-    max-height: 90%;
-    height: 90%;
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 20px;
+  position: absolute;
+  max-height: 90%;
+  height: 90%;
+}
 
-  }
+*::-webkit-scrollbar-track {
+  background: #282b3000;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
 
-  *::-webkit-scrollbar-track {
-    background: #282b3000;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #4c525c;
-    border-radius: 10px;
-    border: 0px none #ff0000;
-  }
+*::-webkit-scrollbar-thumb {
+  background-color: #4c525c;
+  border-radius: 10px;
+  border: 0px none #ff0000;
+}

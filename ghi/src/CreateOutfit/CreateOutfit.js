@@ -106,10 +106,18 @@ const CreateOutfit = () => {
                       dispatch(handleStyleChange(e.target.value))
                     }
                   >
-                    <option className="category" value="">Category</option>
-                    <option className="category" value="Casual">Casual</option>
-                    <option className="category" value="Formal">Formal</option>
-                    <option className="category" value="Sexy">Sexy</option>
+                    <option className="category-select" value="">
+                      Category
+                    </option>
+                    <option className="category-select" value="Casual">
+                      Casual
+                    </option>
+                    <option className="category-select" value="Formal">
+                      Formal
+                    </option>
+                    <option className="category-select" value="Sexy">
+                      Sexy
+                    </option>
                   </select>
                   <button className="create-outfit-button">
                     Create Outfit

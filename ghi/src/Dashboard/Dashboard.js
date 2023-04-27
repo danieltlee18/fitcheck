@@ -1,13 +1,8 @@
 import "./Dashboard.css";
-import { useEffect, useState } from "react";
 import { useListOutfitQuery } from "../services/outfit";
 import { useGetAccountQuery } from "../services/auth";
 import Navbar from "../NavBar/Navbar.js";
 import Footer from "../Footer/Footer.js";
-import KUTE from "kute.js";
-import tom1 from "./images/tom1.webp";
-import tom2 from "./images/tom2.jpeg";
-import tom3 from "./images/tom3.webp";
 import cardBg from "./images/low-poly-grid-haikei.png";
 import silho from "./images/silhouette-fitcheck.png";
 import { subCategories, averageRatings } from "../UserOutfits/styleUtilities";
@@ -91,7 +86,7 @@ const Dashboard = () => {
                 <img src={silho} className="sil" alt="Silhouettes" />
               </div>
               <div className="category">
-                <div>
+                <div className="dashButton-wrapper">
                   <Link to="/rate">
                     <button className="dashButton">Rate some fits!</button>
                   </Link>
