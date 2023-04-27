@@ -10,23 +10,34 @@ export const outfitApi = createApi({
     createOutfit: builder.mutation({
       query: (body) => {
         return {
-            url: "api/outfits",
-            method: "POST",
-            body: body,
-            credentials: "include",
+          url: "api/outfits",
+          method: "POST",
+          body: body,
+          credentials: "include",
         };
       },
-      // invalidateTags: ["Outfits"],
+      invalidatesTags: ["Outfits"],
+    }),
+    deleteOutfit: builder.mutation({
+      query: (body) => {
+        return {
+          url: `api/outfits/${body.outfit_id}`,
+          method: "DELETE",
+          credentials: "include",
+        };
+      },
+      invalidatesTags: ["Outfits"],
     }),
     listOutfit: builder.query({
       query: () => "api/outfits",
       transformResponse: (response) => response?.outfits,
-      providesTags: ["Outfits"]
-    })
+      providesTags: ["Outfits"],
+    }),
   }),
 });
 
 export const {
   useCreateOutfitMutation,
   useListOutfitQuery,
+  useDeleteOutfitMutation,
 } = outfitApi;

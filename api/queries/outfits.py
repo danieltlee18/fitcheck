@@ -25,9 +25,7 @@ class AllOutfits(BaseModel):
 
 
 class OutfitRepo:
-    def list_outfits(
-            self
-    ) -> AllOutfits: #queries: OutfitQueries = Depends()
+    def list_outfits(self) -> AllOutfits:
         try:
             with pool.connection() as conn:
                 with conn.cursor() as db:
@@ -83,8 +81,7 @@ class OutfitRepo:
             self,
             outfit: OutfitIn,
             account_id: int
-            ) -> OutfitOut: #queries: OutfitQueries = Depends()
-            ### query thing here with id from acc_id if needed
+            ) -> OutfitOut:
         with pool.connection() as conn:
             with conn.cursor() as db:
                 result = db.execute(
@@ -99,11 +96,7 @@ class OutfitRepo:
                 )
                 id = result.fetchone()[0]
                 old_data = outfit.dict()
-                return {"id":id, "ratings": [], **old_data, "account_id":account_id, "avg_rating": 0}####FixToIncludeRatings
-    # raise HTTPException(
-    #         status_code=status.HTTP_401_UNAUTHORIZED,
-    #         detail="User is not currently logged in",
-    #     )
+                return {"id":id, "ratings": [], **old_data, "account_id":account_id, "avg_rating": 0}
 
     def delete_outfit(
             self,

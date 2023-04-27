@@ -129,6 +129,29 @@
     overflow: hidden;
     margin: auto;
 }
+.sub-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+.subs{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 94%;
+    height: fit-content;
+}
+.cat_sub1{
+    font-size: 1.5vmin;
+    color: rgb(175, 175, 175);
+    height: fit-content;
+}
+.cat_sub2{
+    font-size: 1.5vmin;
+    color: rgb(175, 175, 175);
+    text-align: right;
+    height: fit-content;
+}
 .score{
     color: gray;
     text-align: center;
