@@ -26,7 +26,7 @@ class AccountQueries:
     def get(self, username: str) -> AccountOutWithPassword:
         with pool.connection() as conn:
             with conn.cursor() as curs:
-                result = curs.execute(
+                curs.execute(
                     """
                     SELECT id, email, username, hashed_password
                     FROM accounts
@@ -63,7 +63,6 @@ class AccountQueries:
                     """,
                     [account["username"], account["email"]],
                 )
-                db_account = curs.fetchone
                 if curs.fetchone() is not None:
                     raise DuplicateAccountError
 

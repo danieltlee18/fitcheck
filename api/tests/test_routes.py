@@ -1,11 +1,10 @@
-from pydantic import BaseModel
-from fastapi import FastAPI, HTTPException, status
+from fastapi import HTTPException, status
 from fastapi.testclient import TestClient
 from main import app
 from queries.authenticator import authenticator
-from queries.outfits import OutfitRepo, OutfitIn, OutfitOut
+from queries.outfits import OutfitRepo
 from queries.accounts import AccountOut
-from queries.ratings import RatingOut, RatingRepo
+from queries.ratings import RatingRepo
 
 client = TestClient(app)
 

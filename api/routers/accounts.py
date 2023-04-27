@@ -16,19 +16,22 @@ from queries.accounts import (
     AccountOut,
     AccountQueries,
     DuplicateAccountError,
-    AccountOutWithPassword
 )
 from queries.authenticator import authenticator
+
 
 class AccountForm(BaseModel):
     username: str
     password: str
 
+
 class AccountToken(Token):
     account: AccountOut
 
+
 class HttpError(BaseModel):
     detail: str
+
 
 router = APIRouter()
 
@@ -52,9 +55,10 @@ async def create_account(
     token = await authenticator.login(response, request, form, accounts)
     return AccountToken(account=account, **token.dict())
 
+
 @router.get("/token", response_model=AccountOut | HttpError)
 async def get_account(
     repo: AccountQueries = Depends(),
-    curr_account: dict=Depends(authenticator.get_current_account_data)
+    curr_account: dict = Depends(authenticator.get_current_account_data),
 ) -> AccountOut:
     return curr_account

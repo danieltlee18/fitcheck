@@ -9,21 +9,21 @@ import { ratingApi } from "../services/rating";
 import ratingReducer from "../features/ratings/ratingSlice";
 
 export const store = configureStore({
-    reducer: {
-        signup: signupReducer,
-        login: loginReducer,
-        outfit: outfitReducer,
-        rating: ratingReducer,
-        [authApi.reducerPath]: authApi.reducer,
-        [outfitApi.reducerPath]: outfitApi.reducer,
-        [ratingApi.reducerPath]: ratingApi.reducer,
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat([
-            authApi.middleware,
-            outfitApi.middleware,
-            ratingApi.middleware,
-        ]),
+  reducer: {
+    signup: signupReducer,
+    login: loginReducer,
+    outfit: outfitReducer,
+    rating: ratingReducer,
+    [authApi.reducerPath]: authApi.reducer,
+    [outfitApi.reducerPath]: outfitApi.reducer,
+    [ratingApi.reducerPath]: ratingApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat([
+      authApi.middleware,
+      outfitApi.middleware,
+      ratingApi.middleware,
+    ]),
 });
 
 setupListeners(store.dispatch);

@@ -2,8 +2,6 @@ from pydantic import BaseModel
 from typing import List
 from routers.pool import pool
 from queries.ratings import RatingOut
-from queries.authenticator import authenticator
-from fastapi import Depends, HTTPException, status
 
 
 class OutfitIn(BaseModel):

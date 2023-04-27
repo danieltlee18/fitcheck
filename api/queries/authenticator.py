@@ -2,7 +2,6 @@ import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.accounts import AccountQueries, AccountOut, AccountOutWithPassword
-from routers.pool import pool
 
 
 class AuthenticateUser(Authenticator):

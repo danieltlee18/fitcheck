@@ -66,12 +66,12 @@
   height: auto;
   border: 2px rgba(255, 255, 255, 0.398) solid;
 }
-.uploaded-img-blur-bg{
-    width: 500% !important;
-    height: 500% !important;
-    position: absolute;
-    transform: translate(5px,5px);
-    filter: blur(30px);
+.uploaded-img-blur-bg {
+  width: 500% !important;
+  height: 500% !important;
+  position: absolute;
+  transform: translate(5px, 5px);
+  filter: blur(30px);
 }
 .left-side-purple {
   position: absolute;
@@ -83,7 +83,7 @@
   height: 65%;
   width: 95%;
 }
-.create-input{
+.create-input {
   width: 25vw;
   margin: auto;
 }
@@ -112,5 +112,4 @@
 }
 .create-outfit-button:hover {
   background-color: blue;
-
 }
