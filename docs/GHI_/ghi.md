@@ -22,6 +22,5 @@ This is the landing page once logged in. Shows your top 3 rated outfits.
 
 ----
 <p align="center">
-  <img src=".Dashboard.jpg" width="800">
+  <img src="/docs/GHI_/Dashboard.jpg" width="800">
 </p>
-
