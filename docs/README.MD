@@ -19,11 +19,11 @@ We are targeting general consumers across a broad spectrum of markets involving 
 ## Functionality
 
 - Visitors will be initally met with the landing page which will display a log-in and sign-up button which will redirect to the dashboard upon the form succesfully being completed
-- User's to the site can receive and give feedback on user uploaded outfits
+- Users to the site can receive and give feedback on user uploaded outfits
 - Users can see their three top rated outfits on their dashboard along with the ability to rate other user's outfits
 - The navbar will be displayed at the top of every endpoint and will include:
     - The 'My Outfits' tab will display all of the logged-in user's outfits along with all of the ratings associated with said outfits
-        - User's will also be able to delete their outfits from this page
+        - Users will also be able to delete their outfits from this page
     - The 'Rate Outfits' tab will display all outfits individually that do not belong to the logged-in user and will display:
         - Image uploaded to the outfit that will be subject to rating
         - The Style and Occasion associated with the outfit
@@ -40,6 +40,6 @@ To fully enjoy this application on your local machine, please make sure to follo
 3. Run `docker volume create fastapi-FitCheck-dat`
 4. Run `docker compose build`
 5. Run `docker compose up`
-<!-- 6. Run `docker exec -it smelli-belli-inventory-api-1 bash` -->  ADD THIS LATER NOT DONE
+<!-- 6. Run `docker exec -it smelli-belli-inventory-api-1 bash` -->  ADD THIS LATER NOT DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 7. Run `python manage.py loaddata products.json`
 8. Exit the container's CLI, and enjoy FitCheck to its fullest!
