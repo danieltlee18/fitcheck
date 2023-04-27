@@ -50,9 +50,9 @@ const UserOutfits = () => {
                             <h3>
                               {outfit.style} | {outfit.occasion.slice(0, 38)}
                             </h3>
-                            <button onClick={() => handleDelete(outfit.id)}>
-                              X
-                            </button>
+                            <div className="delete-outfit" onClick={() => handleDelete(outfit.id)}>
+                              delete
+                            </div>
                             <div className="ratings">
                               <div className="bar-with-rating">
                                 <div className="my-rating">
