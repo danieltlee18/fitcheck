@@ -26,6 +26,8 @@
   font-size: 8vmin;
   position: absolute;
   width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .my-outfits-center-piece{
     width: 90vw;

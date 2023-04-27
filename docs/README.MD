@@ -42,4 +42,4 @@ To fully enjoy this application on your local machine, please make sure to follo
 5. Run `docker compose up`
 <!-- 6. Run `docker exec -it smelli-belli-inventory-api-1 bash` -->  ADD THIS LATER NOT DONE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 <!-- 7. Run `python manage.py loaddata products.json` -->
-8. Exit the container's CLI, and enjoy FitCheck to its fullest!
+6. Exit the container's CLI, and enjoy FitCheck to its fullest!
