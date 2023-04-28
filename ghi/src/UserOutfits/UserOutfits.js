@@ -100,7 +100,7 @@ const UserOutfits = () => {
                                   ></div>
                                 </div>
                                 <p className="out-of-five">
-                                  {Math.round(averageRatings(outfit)[1] * 10) /
+                                  {Math.round(averageRatings(outfit)[2] * 10) /
                                     10}
                                   /5
                                 </p>

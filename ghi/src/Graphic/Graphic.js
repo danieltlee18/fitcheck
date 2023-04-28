@@ -53,15 +53,16 @@ const Graphic = () => {
             <Login />
           </div>
         ) : null}
-        {signupClicked ? (        <div className="signup-exit-wrapper">
-          <button
-            className={signupClicked ? "signup-exit" : "hide"}
-            onClick={() => setSignupClicked(false)}
-          >
-            X
-          </button>
-        </div>) : null}
-
+        {signupClicked ? (
+          <div className="signup-exit-wrapper">
+            <button
+              className={signupClicked ? "signup-exit" : "hide"}
+              onClick={() => setSignupClicked(false)}
+            >
+              X
+            </button>
+          </div>
+        ) : null}
 
         {loginClicked ? <Login /> : ""}
         {signupClicked ? <Signup /> : ""}
