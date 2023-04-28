@@ -1,9 +1,7 @@
 import "./UserOutfits.css";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../NavBar/Navbar.js";
 import Footer from "../Footer/Footer.js";
-import { useDispatch } from "react-redux";
 import {
   useListOutfitQuery,
   useDeleteOutfitMutation,
@@ -12,14 +10,12 @@ import { useGetAccountQuery } from "../services/auth";
 import { subCategories, averageRatings } from "./styleUtilities";
 
 const UserOutfits = () => {
-  const dispatch = useDispatch();
   let { data: outfits, isLoading } = useListOutfitQuery();
   const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
   const [deleteOutfit] = useDeleteOutfitMutation();
-  const [outfitList, setOutfitList] = useState([]);
 
   const handleDelete = (outfitId) => {
-    const result = deleteOutfit({
+    deleteOutfit({
       outfit_id: outfitId,
     });
   };

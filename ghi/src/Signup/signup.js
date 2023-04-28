@@ -26,7 +26,7 @@ const Signup = () => {
 
             return;
         } else {
-            const result = await signup({
+            await signup({
                 username: fields.username,
                 email: fields.email,
                 password: fields.password,
@@ -42,7 +42,7 @@ const Signup = () => {
                 <h1>signup</h1>
                 <form onSubmit={handleSubmit} className="signup-form">
                     <div className="inputs">
-                        <label className="signup-labels" for="username">
+                        <label className="signup-labels" htmlFor="username">
                             Username
                         </label>
                         <input
@@ -55,7 +55,7 @@ const Signup = () => {
                                 dispatch(handleUsernameChange(e.target.value))
                             }
                         ></input>
-                        <label className="signup-labels" for="email">
+                        <label className="signup-labels" htmlFor="email">
                             Email
                         </label>
                         <input
@@ -68,7 +68,7 @@ const Signup = () => {
                                 dispatch(handleEmailChange(e.target.value))
                             }
                         ></input>
-                        <label className="signup-labels" for="password">
+                        <label className="signup-labels" htmlFor="password">
                             Password
                         </label>
                         <input
@@ -84,7 +84,7 @@ const Signup = () => {
                         ></input>
                         <label
                             className="signup-labels"
-                            for="passwordConfirmation"
+                            htmlFor="passwordConfirmation"
                         >
                             Password Confirmation
                         </label>

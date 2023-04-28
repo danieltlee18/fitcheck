@@ -1,10 +1,9 @@
 import "./CreateOutfit.css";
 import Navbar from "../NavBar/Navbar.js";
 import Footer from "../Footer/Footer.js";
-import pHBG from "./images/low-poly-grid-haikei.png";
-import phP from "./images/silhouette-fitcheck.png";
+import pHBG from "../images/low-poly-grid-haikei.png";
+import phP from "../images/silhouette-fitcheck.png";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
 import { useCreateOutfitMutation } from "../services/outfit";
 import {
   handleImgUrlChange,

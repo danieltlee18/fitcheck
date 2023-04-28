@@ -1,14 +1,14 @@
 export const subCategories = (outfit) => {
     if (outfit.style == "Casual") {
         const cat1 = "Fit";
-        const cat1_sub1 = "👖🤷‍♂️Too Loose/Tight!";
-        const cat1_sub2 = "Just Right!👕😊";
+        const cat1_sub1 = "👖🤷‍♂️ Too Loose/Tight";
+        const cat1_sub2 = "Just Right 👕😊";
         const cat2 = "Friendly";
-        const cat2_sub1 = "😱🏃‍♂️Intimidating";
-        const cat2_sub2 = "Approachable🤗👋";
+        const cat2_sub1 = "😱🏃‍♂️ Intimidating";
+        const cat2_sub2 = "Approachable 🤗👋";
         const cat3 = "Style";
-        const cat3_sub1 = "😳🙈YIKES";
-        const cat3_sub2 = "Fashionista!👌😍";
+        const cat3_sub1 = "😳🙈 YIKES";
+        const cat3_sub2 = "Fashionista 👌😍";
         return [
             cat1,
             cat2,
@@ -22,14 +22,14 @@ export const subCategories = (outfit) => {
         ];
     } else if (outfit.style == "Formal") {
         const cat1 = "Tailoring";
-        const cat1_sub1 = "👖🤷‍♂️ Too Loose/Tight!";
+        const cat1_sub1 = "👖🤷‍♂️ Too Loose/Tight ";
         const cat1_sub2 = "Just Right 🤵😊";
         const cat2 = "Elegance";
         const cat2_sub1 = "🥴🧟‍♂️ Sloppy";
         const cat2_sub2 = "Fancy 💃🎩";
         const cat3 = "Style";
         const cat3_sub1 = "😳🙈 YIKES";
-        const cat3_sub2 = "Fashionista!👌😍";
+        const cat3_sub2 = "Fashionista 👌😍";
         return [
             cat1,
             cat2,
@@ -43,7 +43,7 @@ export const subCategories = (outfit) => {
         ];
     } else if (outfit.style == "Sexy") {
         const cat1 = "Flattering";
-        const cat1_sub1 = "👖🤷‍♂️ Too Loose/Tight!";
+        const cat1_sub1 = "👖🤷‍♂️ Too Loose/Tight";
         const cat1_sub2 = "Just Right 👕😊";
         const cat2 = "Seductive";
         const cat2_sub1 = "🤓🦆 Hi Friend";

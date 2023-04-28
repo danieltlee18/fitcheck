@@ -1,7 +1,7 @@
 import Spline from "@splinetool/react-spline";
 import { useState, useEffect } from "react";
 import "./Graphic.css";
-import logo from "./images/fitCheckLogo.png";
+import logo from "../images/fitCheckLogo.png";
 import Login from "../Login/Login";
 import Signup from "../Signup/signup";
 
