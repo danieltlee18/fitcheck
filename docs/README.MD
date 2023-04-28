@@ -37,7 +37,9 @@ To fully enjoy this application on your local machine, please make sure to follo
 
 1. Clone the repository down to your local machine
 2. CD into the new project directory
-3. Run `docker volume create fastapi-FitCheck-data`
-4. Run `docker compose build`
-5. Run `docker compose up`
-6. Exit the container's CLI, and enjoy FitCheck to its fullest!
+3. Create a .env file that will store the POSGRES_PASSWORD and the SIGNING_KEY
+4. Create a POSTGRES_PASSWORD and a hexadecimal SIGNING_KEY and store it in .env
+5. Run `docker volume create fastapi-FitCheck-data`
+6. Run `docker compose build`
+7. Run `docker compose up`
+8. Exit the container's CLI, and enjoy FitCheck to its fullest!
