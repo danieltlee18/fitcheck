@@ -55,7 +55,7 @@ class RatingRepo:
         ):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="Illegal rating value, value must be between between 0,5 inclusive and evenly divisible by .5",
+                detail="invalid value, value must be between 1,5 inclusive"
             )
         result = None
         with pool.connection() as conn:
@@ -63,11 +63,19 @@ class RatingRepo:
                 result = db.execute(
                     """
                     INSERT INTO ratings
-                        (category_1, category_2, category_3, outfit_id, account_id)
+                        (category_1,
+                        category_2,
+                        category_3,
+                        outfit_id,
+                        account_id)
                     VALUES
                         (%s, %s, %s, %s, %s)
                     RETURNING
-                        id, category_1, category_2, category_3, outfit_id, account_id;
+                        id, category_1,
+                        category_2,
+                        category_3,
+                        outfit_id,
+                        account_id;
                     """,
                     [
                         rating.category_1,
@@ -98,7 +106,11 @@ class RatingRepo:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT id, category_1, category_2, category_3, outfit_id, account_id
+                        SELECT id, category_1,
+                        category_2,
+                        category_3,
+                        outfit_id,
+                        account_id
                         FROM ratings
                         WHERE (outfit_id = %s)
                         """,

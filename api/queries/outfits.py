@@ -31,7 +31,19 @@ class OutfitRepo:
                 with conn.cursor() as db:
                     db.execute(
                         """
-                        SELECT outfits.id, img_url, style, occasion, outfits.account_id, outfits.avg_rating, ratings.id, ratings.category_1, ratings.category_2, ratings.category_3, ratings.account_id, ratings.outfit_id
+                        SELECT
+                        outfits.id,
+                        img_url,
+                        style,
+                        occasion,
+                        outfits.account_id,
+                        outfits.avg_rating,
+                        ratings.id,
+                        ratings.category_1,
+                        ratings.category_2,
+                        ratings.category_3,
+                        ratings.account_id,
+                        ratings.outfit_id
                         FROM outfits
                         LEFT JOIN ratings ON outfits.id = ratings.outfit_id
                         ORDER BY outfits.id

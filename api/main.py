@@ -17,6 +17,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 @app.get("/", tags=["Landing Page"])
 async def root():
     return {"message": "Hello World"}

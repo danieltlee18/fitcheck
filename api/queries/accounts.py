@@ -35,7 +35,7 @@ class AccountQueries:
                     [username],
                 )
                 u_name = curs.fetchone()
-                if u_name == None:
+                if u_name is None:
                     return None
 
                 out_user = AccountOutWithPassword(
