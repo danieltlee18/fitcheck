@@ -31,3 +31,5 @@
 4/26 - Finished up unit testing for all 4 members and created a delete button on the front-end for outfits that would delete the outfit and re-render the page
 
 4/27 - READ.ME and documentation worked on, started cleaning up code with black and lint
+
+4/28 - Big submission day, project is done and just had to iron out some small CSS bugs
