@@ -34,27 +34,25 @@ const Login = () => {
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit} className="login-form">
                     <div className="inputs">
-                        <label className="login-labels" for="username">
+                        <label className="login-labels" htmlFor="username">
                             Username
                         </label>
                         <input
                             className="login-input"
                             placeholder="username"
-                            id="username"
                             required
                             value={fields.username}
                             onChange={(e) =>
                                 dispatch(handleUsernameChange(e.target.value))
                             }
                         ></input>
-                        <label className="login-labels" for="password">
+                        <label className="login-labels" htmlFor="password">
                             Password
                         </label>
                         <input
                             className="login-input"
                             placeholder="password"
                             type="password"
-                            id="password"
                             required
                             value={fields.password}
                             onChange={(e) =>

@@ -3,8 +3,8 @@ import { useListOutfitQuery } from "../services/outfit";
 import { useGetAccountQuery } from "../services/auth";
 import Navbar from "../NavBar/Navbar.js";
 import Footer from "../Footer/Footer.js";
-import cardBg from "./images/low-poly-grid-haikei.png";
-import silho from "./images/silhouette-fitcheck.png";
+import cardBg from "../images/low-poly-grid-haikei.png";
+import silho from "../images/silhouette-fitcheck.png";
 import { subCategories, averageRatings } from "../UserOutfits/styleUtilities";
 import { Link } from "react-router-dom";
 const Dashboard = () => {

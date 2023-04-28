@@ -8,6 +8,7 @@
     align-items: center;
     position: absolute;
     top: 0;
+    z-index: 10;
 }
 .signup-card{
     background-color: white;
@@ -19,14 +20,11 @@
     border: 10px solid white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 .signup-card h1{
-    top: 0;
-    transform: translateY(-1.5vh);
     font-size: 3em;
-
 }
 .inputs{
     display: flex;
@@ -41,7 +39,6 @@
     font-size: 1.5em;
 }
 .signup-button{
-    margin-top: 3vh;
     height: 5vh;
     width: 10vw;
     border-radius: 50px;
@@ -57,15 +54,11 @@
     background-color: blue;
 }
 .signup-form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 90%;
 }
 .signup-exit-wrapper{
-    height: 100vh;
-    width: 100vw;
     background-color: rgba(255, 255, 255, 0);
-    z-index: 10;
+    z-index: 20;
     position: absolute;
 }
 .signup-exit{
@@ -78,13 +71,13 @@
     border: 3px solid white;
     border-radius: 30%;
     position: absolute;
-    transform: translate(65vw,22vh);
+    transform: translate(65vw,-28vh);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     cursor: pointer;
-    z-index: 99999;
+    z-index: 20;
     transition: 250ms;
 }
 .signup-exit:hover{

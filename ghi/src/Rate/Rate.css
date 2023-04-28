@@ -70,7 +70,6 @@
     word-break: break-all;
     position: absolute;
     z-index: 4;
-    /* background-image: linear-gradient(to bottom, rgb(255,162,121),rgba(255, 255, 255, 0)); */
     height: 5vh;
     top: 0;
     text-align: center;
@@ -90,7 +89,6 @@
     width: 100%;
     position: absolute;
     z-index: 4;
-    /* background-image: linear-gradient(to top,rgb(253,125,179),rgba(255, 255, 255, 0)); */
     height: 5vh;
     bottom: 0;
     text-align: center;
