@@ -18,4 +18,4 @@
 24-Apr	Amro on keys. Mostly cleaning up css stuff for various screens. Adding edge cases for no outfits, fitting and resizing text and placing sytle and ratings on
 25-Apr	Cleaning up edge cases more work on css and starting on tests. Got a couple tests working for account endpoint
 26-Apr	Finished up writing tests. Completed delete functionality using tags
-27-Apr	Completed docs, readme, cleaning up code, some css bugs. Need one last sweep of code cleanliness 
+27-Apr	Completed docs, readme, cleaning up code, some css bugs. Need one last sweep of code cleanliness  
