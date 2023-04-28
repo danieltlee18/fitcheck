@@ -43,4 +43,10 @@
 04/25/23 | Today we worked on unit testing and diving deeper into learning how they work. We got the unit test for getting a user's account working.
 
 
-04/26/23 | 
+04/26/23 | We finished unit testing for the endpoints we selected and added a delete button that will delete a user's outfit and rerender the page.
+
+
+04/27/23 | We formatted our code, cleaned up some CSS, and finished up our documentation for our project.
+
+
+04/28/23 | We went through the project with the console open to check for any errors. We checked all the functionality of the website to make sure it was performing as expecting. We finished up some linting of the code and making sure that everything was clean.
