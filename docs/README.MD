@@ -14,7 +14,7 @@
 
 ## Intended Market
 
-We are targeting general consumers across a broad spectrum of markets involving a highly-personalized product that will help users get feedback on and give feedback to others' outfits. Consumers of the fasion industry, clothing, and similar industries will find the product to be suitable to their tastes.
+We are targeting general consumers across a broad spectrum of markets involving a highly-personalized product that will help users get feedback on and give feedback to others' outfits. Consumers of the fasion industry, clothing, and similar industries will find the product to be suitable to their tastes!
 
 ## Functionality
 
