@@ -10,10 +10,10 @@ import UserOutfits from "./UserOutfits/UserOutfits";
 
 function App() {
   const domain = /https:\/\/[^/]+/;
-  const basename = process.env.PUBLIC_URL.replace( domain, "")
+//   const basename = process.env.PUBLIC_URL.replace( domain, "")
     return (
         <div className="App">
-            <BrowserRouter basename={basename}>
+            <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Graphic />}></Route>
                     <Route path="/dashboard" element={<Dashboard />}></Route>
