@@ -7,12 +7,17 @@ import cardBg from "../images/low-poly-grid-haikei.png";
 import silho from "../images/silhouette-fitcheck.png";
 import { subCategories, averageRatings } from "../UserOutfits/styleUtilities";
 import { Link } from "react-router-dom";
+import logo from "../images/fitCheckLogo.png";
 const Dashboard = () => {
     const { data: outfits, isLoading } = useListOutfitQuery();
     const { data: user, isLoading: isUserLoading } = useGetAccountQuery();
 
     if (isLoading || isUserLoading) {
-        return <div>loading</div>;
+        return (
+          <div className="loading-wrapper">
+            <img className="loading-logo" src={logo} />
+          </div>
+        );
     } else {
         let sorted = [...outfits];
         sorted.sort((a, b) => b.avg_rating - a.avg_rating);

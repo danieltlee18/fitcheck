@@ -184,28 +184,40 @@ body{
     margin: 0 0 0 20px;
 }
 .percentage{
-    width: 80%;
     background-color: blue;
     height: 100%;
     object-fit: cover;
     border-radius: 0 25px 25px 0;
     border-right: 5px solid rgba(255, 255, 255, 0.29);
+    animation: rev 1.5s linear infinite;
 }
 .percentage2{
-    width: 45%;
     background-color: rgb(0, 211, 11);
     height: 100%;
     object-fit: cover;
     border-radius: 0 25px 25px 0;
     border-right: 5px solid rgba(255, 255, 255, 0.582);
+    animation: rev 1.4s linear infinite;
 }
 .percentage3{
-    width: 60%;
     background-color: rgb(157, 0, 210);
     height: 100%;
     object-fit: cover;
     border-radius: 0 25px 25px 0;
     border-right: 5px solid rgba(255, 255, 255, 0.29);
+    animation: rev 1.6s linear infinite;
+}
+
+@keyframes rev {
+    0%{
+       scale:1;
+    }
+    50%{
+        scale:1.05;
+    }
+    100%{
+        scale: 1;
+    }
 }
 
 .right{

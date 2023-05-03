@@ -1,0 +1,30 @@
+.loading-wrapper{
+    background-image: url('../images/blob-haikei.svg');
+    background-repeat: none;
+    background-position: center;
+    background-size: contain;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-logo{
+    animation: spin 5.0s linear infinite;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(0);
+    }
+    50%{
+        transform: rotate(370deg);
+    }
+    60% {
+        transform: rotate(-10deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
