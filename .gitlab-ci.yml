@@ -39,7 +39,7 @@ build-front-end-job:
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     # PUBLIC_URL: https://lads.gitlab.io/fitcheck
     PUBLIC_URL: https://amro.salha.gitlab.io/module3-project-gamma/
-    REACT_APP_API_HOST: https://captain.onrender.com
+    REACT_APP_FitCheck_API_HOST: https://fitcheck-api.dec-ct-3.mod3projects.com
   script:
     - cd ghi
     - npm install
