@@ -41,7 +41,6 @@ const Graphic = () => {
       {loading ? <div className="loading-wrapper"><img className="loading-logo" src={logo} /></div> : null}
       <section className="wrapper">
         {spline}
-        {console.log(true === spline)}
         <div className="content">
           <img src={logo} alt="logo" />
           <h1>

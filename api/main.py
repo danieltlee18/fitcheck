@@ -12,7 +12,8 @@ app.add_middleware(
     allow_origins=[
         'http://localhost:3000',
         os.environ.get("CORS_HOST", None),
-        'https://fitcheck.one'
+        'https://fitcheck.one',
+        'https://lads51.gitlab.io'
     ],
     allow_credentials=True,
     allow_methods=["*"],
