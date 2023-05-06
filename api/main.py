@@ -38,7 +38,9 @@ async def get_account(
 ) -> AccountOut:
     response = AccountOut.from_orm(curr_account)
     access_token = authenticator.create_access_token(curr_account)
-    response.headers["Set-Cookie"] = f"access_token={access_token}; HttpOnly; Secure; SameSite=None"
+    response.headers["Set-Cookie"] = (
+        f"access_token={access_token}; HttpOnly; Secure; SameSite=None"
+    )
     return response
 
 
@@ -46,4 +48,3 @@ app.include_router(outfits.router, tags=["Outfits"])
 app.include_router(authenticator.router, tags=["Authentication"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(ratings.router, tags=["Ratings"])
-
