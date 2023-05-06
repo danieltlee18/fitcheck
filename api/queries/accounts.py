@@ -17,6 +17,9 @@ class AccountOut(BaseModel):
     email: str
     username: str
 
+    class Config:
+        orm_mode = True
+
 
 class AccountOutWithPassword(AccountOut):
     hashed_password: str

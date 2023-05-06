@@ -27,7 +27,7 @@ app.add_middleware(
 @app.get("/", tags=["Landing Page"])
 async def root():
     return {"message": "Hello World"}
-    
+
 
 app.include_router(outfits.router, tags=["Outfits"])
 app.include_router(authenticator.router, tags=["Authentication"])
