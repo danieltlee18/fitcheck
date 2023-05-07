@@ -58,9 +58,4 @@ async def get_account(
     repo: AccountQueries = Depends(),
     curr_account: dict = Depends(authenticator.get_current_account_data),
 ) -> AccountOut:
-    response = AccountOut.from_orm(curr_account)
-    access_token = authenticator.create_access_token(curr_account)
-    response.headers["Set-Cookie"] = (
-        f"access_token={access_token}; HttpOnly; Secure; SameSite=None"
-    )
-    return response
+    return curr_account

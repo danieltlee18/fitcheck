@@ -7,16 +7,17 @@ from routers import accounts, ratings
 
 app = FastAPI()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
+origins = [
         'http://localhost:3000',
         os.environ.get("CORS_HOST", None),
         'https://fitcheck.one',
         'https://lads51.gitlab.io',
         'https://www.fitcheck.one',
+]
 
-    ],
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
