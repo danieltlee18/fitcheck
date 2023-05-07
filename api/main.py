@@ -22,13 +22,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["pragma"],
-    max_age=None
+    max_age=315576000
 )
 
 
 @app.get("/", tags=["Landing Page"])
 async def root():
-    return {"message": "Hello World"}
+    headers = {
+        "Access-Control-Allow-Origin": "*",
+    }
+    return {"message": "Hello World"}, 200, headers
 
 
 app.include_router(outfits.router, tags=["Outfits"])
