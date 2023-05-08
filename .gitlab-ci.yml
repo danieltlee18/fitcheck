@@ -31,7 +31,7 @@ build-front-end-job:
   image: node:lts-bullseye
   needs:
     - api-unit-test-job
-    - lint-test-job 
+    - lint-test-job
   variables:
     # If either of these variables is defined in the GitLab
     # CI/CD variables, that value will override the value here.
@@ -39,6 +39,8 @@ build-front-end-job:
     # GROUP_NAME, PROJECT_NAME, & WEBSERVICE_NAME below.
     PUBLIC_URL: https://fitcheck.one
     REACT_APP_FitCheck_API_HOST: https://fitcheck-api.dec-ct-3.mod3projects.com
+    DATABASE_URL: postgresql://postgres:f1c8faf839fccf67@srv-captain--fitcheck-db:5432/postgres
+    SIGNING KEY: 76582974be74df66a4fa4651baef99db21d258bf19557832fcc3b43b911f72e7
   script:
     - cd ghi
     - npm install
