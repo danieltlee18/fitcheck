@@ -18,7 +18,6 @@ origins = [
 
 
 
-
 @app.get("/", tags=["Landing Page"])
 async def root():
     headers = {
@@ -37,7 +36,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["Authorization", "Content-Type", "Origin", "User-Agent"],
+    allow_methods=["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
     expose_headers=["pragma"],
     max_age=315576000
 )
