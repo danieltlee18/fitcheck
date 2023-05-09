@@ -17,7 +17,6 @@ origins = [
 ]
 
 
-
 @app.get("/", tags=["Landing Page"])
 async def root():
     headers = {
