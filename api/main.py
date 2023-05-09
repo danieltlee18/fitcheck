@@ -16,15 +16,7 @@ origins = [
         "https://lads51.gitlab.io/module3-project-gamma/"
 ]
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["Authorization", "Content-Type", "Origin", "User-Agent"],
-    expose_headers=["pragma"],
-    max_age=315576000
-)
+
 
 
 @app.get("/", tags=["Landing Page"])
@@ -39,3 +31,13 @@ app.include_router(outfits.router, tags=["Outfits"])
 app.include_router(authenticator.router, tags=["Authentication"])
 app.include_router(accounts.router, tags=["Accounts"])
 app.include_router(ratings.router, tags=["Ratings"])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["Authorization", "Content-Type", "Origin", "User-Agent"],
+    expose_headers=["pragma"],
+    max_age=315576000
+)

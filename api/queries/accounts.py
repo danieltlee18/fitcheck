@@ -24,6 +24,7 @@ class AccountOutWithPassword(AccountOut):
 
 class AccountQueries:
     def get(self, username: str) -> AccountOutWithPassword:
+        print("Username if crash:", username)
         with pool.connection() as conn:
             with conn.cursor() as curs:
                 curs.execute(
