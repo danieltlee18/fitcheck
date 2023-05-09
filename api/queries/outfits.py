@@ -88,6 +88,7 @@ class OutfitRepo:
 
                     for value in results_dict.values():
                         results.append(value)
+                    db.close()
                     return {"outfits": results}
         except Exception as e:
             print(e)
@@ -113,6 +114,7 @@ class OutfitRepo:
                 )
                 id = result.fetchone()[0]
                 old_data = outfit.dict()
+                db.close()
                 return {
                     "id": id,
                     "ratings": [],
@@ -133,6 +135,7 @@ class OutfitRepo:
                         [outfit_id],
                     )
                     account_id = db.fetchone()[0]
+                    db.close()
         except Exception as e:
             print(e)
             return False
@@ -147,6 +150,7 @@ class OutfitRepo:
                             """,
                             [outfit_id],
                         )
+                        db.close()
                         return True
             except Exception as e:
                 print(e)

@@ -80,4 +80,5 @@ class AccountQueries:
                     ],
                 )
                 account["id"] = output.fetchone()[0]
+                curs.close()
         return AccountOutWithPassword(**account)
