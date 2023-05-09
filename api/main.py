@@ -12,7 +12,9 @@ origins = [
         'https://fitcheck.one',
         'https://lads51.gitlab.io',
         'https://www.fitcheck.one',
-        "https://lads51.gitlab.io/module3-project-gamma"
+        "https://lads51.gitlab.io/module3-project-gamma",
+        "https://fitcheck-api.dec-ct-3.mod3projects.com"
+
 ]
 
 app.add_middleware(
