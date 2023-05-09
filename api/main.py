@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-# import os
+import os
 from routers import outfits
 from queries.authenticator import authenticator
 from routers import accounts, ratings
@@ -9,12 +9,11 @@ app = FastAPI()
 
 origins = [
         'http://localhost:3000',
+        os.environ.get("CORS_HOST", None),
         'https://fitcheck.one',
         'https://lads51.gitlab.io',
         'https://www.fitcheck.one',
-        "https://lads51.gitlab.io/module3-project-gamma",
-        "https://fitcheck-api.dec-ct-3.mod3projects.com"
-
+        "https://lads51.gitlab.io/module3-project-gamma/"
 ]
 
 app.add_middleware(
@@ -33,7 +32,7 @@ async def root():
     headers = {
         "Access-Control-Allow-Origin": origins,
     }
-    return headers
+    return 200, headers
 
 
 app.include_router(outfits.router, tags=["Outfits"])
