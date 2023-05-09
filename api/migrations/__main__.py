@@ -1,9 +1,12 @@
 async def migrate():
     from . import down, up, LATEST, ZERO
-    import os
+    # import os
     import sys
 
-    db_url = "postgresql://postgres:f1c8faf839fccf67@srv-captain--fitcheck-db:5432/postgres"
+    db_url = """
+        postgresql://postgres:f1c8faf839fccf67@
+        srv-captain--fitcheck-db:5432/postgres
+    """
 
     if len(sys.argv) < 2:
         print("Command: up|down [amount]")

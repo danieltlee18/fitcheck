@@ -1,4 +1,4 @@
-import os
+# import os
 from fastapi import Depends
 from jwtdown_fastapi.authentication import Authenticator
 from queries.accounts import AccountQueries, AccountOut, AccountOutWithPassword
@@ -25,4 +25,5 @@ class AuthenticateUser(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = AuthenticateUser("76582974be74df66a4fa4651baef99db21d258bf19557832fcc3b43b911f72e7")
+authenticator = AuthenticateUser("""76582974be74df66a4fa4651baef99d
+b21d258bf19557832fcc3b43b911f72e7""")
