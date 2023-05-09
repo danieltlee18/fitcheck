@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: fetchBaseQuery({
-        baseUrl: `https://fitcheck-api.dec-ct-3.mod3projects.com`,
+        baseUrl: `${process.env.REACT_APP_FitCheck_API_HOST}`,
         credentials: "include", // sends cookie to FastAPI
     }),
     endpoints: (builder) => ({
