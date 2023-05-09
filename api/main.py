@@ -13,6 +13,7 @@ origins = [
         'https://fitcheck.one',
         'https://lads51.gitlab.io',
         'https://www.fitcheck.one',
+        "https://lads51.gitlab.io/module3-project-gamma/"
 ]
 
 app.add_middleware(
@@ -29,9 +30,9 @@ app.add_middleware(
 @app.get("/", tags=["Landing Page"])
 async def root():
     headers = {
-        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Origin": origins,
     }
-    return {"message": "Hello World"}, 200, headers
+    return 200, headers
 
 
 app.include_router(outfits.router, tags=["Outfits"])

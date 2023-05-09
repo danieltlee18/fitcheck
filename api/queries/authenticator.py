@@ -25,4 +25,4 @@ class AuthenticateUser(Authenticator):
         return account.username, AccountOut(**account.dict())
 
 
-authenticator = AuthenticateUser(os.environ["SIGNING_KEY"])
+authenticator = AuthenticateUser("76582974be74df66a4fa4651baef99db21d258bf19557832fcc3b43b911f72e7")

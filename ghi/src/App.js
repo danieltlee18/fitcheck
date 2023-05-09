@@ -9,10 +9,10 @@ import CreateOutfit from "./CreateOutfit/CreateOutfit";
 import UserOutfits from "./UserOutfits/UserOutfits";
 
 function App() {
-      const domain = /https:\/\/[^/]+/;
-      const basename = process.env.PUBLIC_URL.replace(domain, "");
+    //   const domain = /https:\/\/[^/]+/;
+    //   const basename = process.env.PUBLIC_URL.replace(domain, "");
     return (
-      <div className="App" basename={basename}>
+      <div className="App">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Graphic />}></Route>
