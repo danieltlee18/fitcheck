@@ -13,17 +13,14 @@ origins = [
         'https://fitcheck.one',
         'https://lads51.gitlab.io',
         'https://www.fitcheck.one',
-        "https://lads51.gitlab.io/module3-project-gamma/",
+        "https://lads51.gitlab.io/module3-project-gamma",
         "https://fitcheck-api.dec-ct-3.mod3projects.com",
 ]
 
 
 @app.get("/", tags=["Landing Page"])
 async def root():
-    headers = {
-        "Access-Control-Allow-Origin": origins,
-    }
-    return 200, headers
+    return {"message": "Welcome to FitCheck API!"}
 
 
 app.include_router(outfits.router, tags=["Outfits"])
@@ -36,6 +33,7 @@ app.add_middleware(
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
+    allow_headers=["*"],
     expose_headers=["pragma"],
     max_age=315576000
 )
