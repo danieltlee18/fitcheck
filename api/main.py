@@ -30,7 +30,7 @@ app.include_router(ratings.router, tags=["Ratings"])
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://fitcheck.one"],
+    allow_origins=['https://fitcheck.one'],
     allow_credentials=True,
     allow_methods=["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
     allow_headers=["*"],
