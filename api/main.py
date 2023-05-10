@@ -7,15 +7,15 @@ from routers import accounts, ratings
 
 app = FastAPI()
 
-origins = [
-        'http://localhost:3000',
-        os.environ.get("CORS_HOST", None),
-        'https://fitcheck.one',
-        'https://lads51.gitlab.io',
-        'https://www.fitcheck.one',
-        "https://lads51.gitlab.io/module3-project-gamma",
-        "https://fitcheck-api.dec-ct-3.mod3projects.com",
-]
+# origins = [
+#         'http://localhost:3000',
+#         os.environ.get("CORS_HOST", None),
+#         'https://fitcheck.one',
+#         'https://lads51.gitlab.io',
+#         'https://www.fitcheck.one',
+#         "https://lads51.gitlab.io/module3-project-gamma",
+#         "https://fitcheck-api.dec-ct-3.mod3projects.com",
+# ]
 
 
 @app.get("/", tags=["Landing Page"])
@@ -30,8 +30,7 @@ app.include_router(ratings.router, tags=["Ratings"])
 
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=origins,
-    allow_origins=["*"],
+    allow_origins=["https://fitcheck.one"],
     allow_credentials=True,
     allow_methods=["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"],
     allow_headers=["*"],
